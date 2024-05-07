@@ -1,11 +1,17 @@
 package objects.impl;
 
 import objects.PokemonImpl;
+import enums.Types;
 
 public class Bulbasaur extends PokemonImpl {
     @Override
     public String getDisplayName() {
         return "Bulbasaur";
+    }
+
+    @Override
+    public Types[] getTypes() {
+        return new Types[]{Types.GRASS, Types.POISON};
     }
 
     @Override
