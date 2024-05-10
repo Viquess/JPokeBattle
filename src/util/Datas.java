@@ -9,5 +9,5 @@ public class Datas {
     /**
      * Lista dei pokemon registrati
      */
-    @Getter public static HashMap<String, PokemonImpl> pokemons = new HashMap<>();
+    @Getter private static HashMap<String, PokemonImpl> pokemons = new HashMap<>();
 }

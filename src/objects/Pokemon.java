@@ -1,6 +1,9 @@
 package objects;
 
+import enums.MoveTypes;
 import enums.Types;
+
+import java.util.List;
 
 public interface Pokemon {
     /**
@@ -52,13 +55,26 @@ public interface Pokemon {
     int getSpeed();
 
     /**
+     * Determina la lista di mosse imparabili dal Pokemon
+     * @return Lista di mosse imparabili dal Pokemon
+     */
+    List<MoveTypes> getLearnableMoves();
+
+    /**
+     * Determina la lista di mosse del Pokemon
+     * @return Lista di mosse del Pokemon
+     */
+    List<Move> getMoves();
+
+    /**
      * Registra un Pokemon nella lista dei Pokemon
      */
     void register();
 
     /**
      * Ottieni una nuova istanza del Pokemon
+     * @param moves Mosse del pokemon
      * @return Nuova istanza del Pokemon
      */
-    Pokemon newInstance();
+    Pokemon newInstance(List<Move> moves);
 }

@@ -1,3 +1,5 @@
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 import util.Datas;
 
 import javax.swing.*;
@@ -8,9 +10,9 @@ public class Menu {
     private JPanel panel;
 
     public Menu() {
+        panel.setOpaque(false);
         start.addActionListener(e -> {
-            System.out.println(Datas.getPokemons());
-            System.exit(0);
+            Main.switchMode();
         });
     }
 

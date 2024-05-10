@@ -1,7 +1,10 @@
 package objects.impl;
 
-import objects.PokemonImpl;
+import enums.MoveTypes;
 import enums.Types;
+import objects.PokemonImpl;
+
+import java.util.List;
 
 public class Bulbasaur extends PokemonImpl {
     @Override
@@ -42,5 +45,10 @@ public class Bulbasaur extends PokemonImpl {
     @Override
     public int getSpeed() {
         return 45;
+    }
+
+    @Override
+    public List<MoveTypes> getLearnableMoves() {
+        return List.of(MoveTypes.GROWL, MoveTypes.TACKLE);
     }
 }

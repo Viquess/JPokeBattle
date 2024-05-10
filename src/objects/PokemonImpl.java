@@ -1,11 +1,16 @@
 package objects;
 
+import enums.MoveTypes;
 import enums.Types;
 import lombok.SneakyThrows;
 import util.Datas;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class PokemonImpl implements Pokemon {
     private final String id = getClass().getSimpleName().toLowerCase();
+    protected List<Move> moves = new ArrayList<>();
 
     @Override
     public abstract String getDisplayName();
@@ -32,12 +37,29 @@ public abstract class PokemonImpl implements Pokemon {
     public abstract int getSpeed();
 
     @Override
+    public abstract List<MoveTypes> getLearnableMoves();
+
+    @Override
+    public List<Move> getMoves() {
+        return moves;
+    }
+
+    public void setMoves(List<Move> moves) {
+        this.moves = moves;
+    }
+
+    @Override
     public void register() {
         Datas.getPokemons().put(id, this);
     }
 
-    @SneakyThrows
-    public PokemonImpl newInstance() {
-        return getClass().getConstructor().newInstance();
+    @Override @SneakyThrows
+    public PokemonImpl newInstance(List<Move> moves) {
+        var classe = getClass().getDeclaredConstructor().newInstance();
+
+        moves.removeIf(move -> !classe.getLearnableMoves().contains(move.getType()));
+        classe.setMoves(moves);
+
+        return classe;
     }
 }
