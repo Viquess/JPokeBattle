@@ -5,6 +5,7 @@ import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.io.InputStream;
+import java.net.URL;
 
 public class Main {
     private static JFrame frame;
@@ -18,10 +19,16 @@ public class Main {
             setUIFont(new FontUIResource(Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(12f)));
 
         frame = new JFrame("JPokeBattle");
+        frame.pack();
+
+        URL icon = Main.class.getResource("files/Logo.png");
+        if (icon != null)
+            frame.setIconImage(new ImageIcon(icon).getImage());
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(new Dimension(700, 400));
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
-        frame.pack();
         frame.setVisible(true);
     }
 
