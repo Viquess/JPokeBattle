@@ -1,4 +1,4 @@
-import gui.Menu;
+import gui.Application;
 import lombok.SneakyThrows;
 import objects.impl.Bulbasaur;
 
@@ -6,7 +6,6 @@ import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.io.InputStream;
-import java.net.URL;
 
 public class Main {
 
@@ -18,7 +17,7 @@ public class Main {
         if (is != null)
             setUIFont(new FontUIResource(Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(12f)));
 
-        new Menu();
+        new Application();
     }
 
     private static void registerPokemons() {
