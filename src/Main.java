@@ -1,16 +1,15 @@
 import gui.Application;
-import lombok.SneakyThrows;
 import objects.impl.Bulbasaur;
 
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
+import java.io.IOException;
 import java.io.InputStream;
 
 public class Main {
 
-    @SneakyThrows
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, FontFormatException {
         registerPokemons();
 
         InputStream is = Main.class.getClassLoader().getResourceAsStream("files/PokemonFont.ttf");

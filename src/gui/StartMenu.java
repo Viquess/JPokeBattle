@@ -1,6 +1,5 @@
 package gui;
 
-import lombok.SneakyThrows;
 import util.Utils;
 
 import javax.imageio.ImageIO;
@@ -9,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class StartMenu extends JPanel {
     private JLabel title;
@@ -39,10 +39,14 @@ public class StartMenu extends JPanel {
         add(title);
     }
 
-    @SneakyThrows
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponents(g);
-        g.drawImage(ImageIO.read(Utils.getURL("files\\start\\background.jpg")), 0, 0, null);
+
+        try {
+            g.drawImage(ImageIO.read(Utils.getURL("files\\start\\background.jpg")), 0, 0, null);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

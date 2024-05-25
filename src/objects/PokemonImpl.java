@@ -2,9 +2,9 @@ package objects;
 
 import enums.MoveTypes;
 import enums.Types;
-import lombok.SneakyThrows;
 import util.Datas;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,13 +53,16 @@ public abstract class PokemonImpl implements Pokemon {
         Datas.getPokemons().put(id, this);
     }
 
-    @Override @SneakyThrows
+    @Override
     public PokemonImpl newInstance(List<Move> moves) {
-        var classe = getClass().getDeclaredConstructor().newInstance();
+        try {
+            PokemonImpl classe = getClass().getDeclaredConstructor().newInstance();
+            moves.removeIf(move -> !classe.getLearnableMoves().contains(move.getType()));
+            classe.setMoves(moves);
 
-        moves.removeIf(move -> !classe.getLearnableMoves().contains(move.getType()));
-        classe.setMoves(moves);
-
-        return classe;
+            return classe;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
