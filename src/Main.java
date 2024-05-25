@@ -1,3 +1,4 @@
+import gui.Menu;
 import lombok.SneakyThrows;
 import objects.impl.Bulbasaur;
 
@@ -8,7 +9,6 @@ import java.io.InputStream;
 import java.net.URL;
 
 public class Main {
-    private static JFrame frame;
 
     @SneakyThrows
     public static void main(String[] args) {
@@ -18,18 +18,7 @@ public class Main {
         if (is != null)
             setUIFont(new FontUIResource(Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(12f)));
 
-        frame = new JFrame("JPokeBattle");
-        frame.pack();
-
-        URL icon = Main.class.getResource("files/Logo.png");
-        if (icon != null)
-            frame.setIconImage(new ImageIcon(icon).getImage());
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(new Dimension(700, 400));
-        frame.setLocationRelativeTo(null);
-        frame.setResizable(false);
-        frame.setVisible(true);
+        new Menu();
     }
 
     private static void registerPokemons() {
