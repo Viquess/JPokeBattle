@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.util.Arrays;
 
 public class Application extends JFrame {
+    private static Application instance;
 
     public Application() {
         super("JPokeBattle");
@@ -22,5 +23,15 @@ public class Application extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
+
+        instance = this;
+    }
+
+    /**
+     * Ottieni l'istanza attiva dell'applicazione
+     * @return istanza dell'applicazione
+     */
+    public static Application getInstance() {
+        return instance;
     }
 }

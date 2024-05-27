@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 
 public class StartMenu extends JPanel {
@@ -27,12 +29,13 @@ public class StartMenu extends JPanel {
         startButton = new JButton((new ImageIcon(Utils.getURL("files\\start\\start.png"))));
         startButton.setPressedIcon(new ImageIcon(Utils.getURL("files\\start\\startPressed.png")));
         startButton.setBounds(430,400, 130,46);
+        startButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        startButton.setContentAreaFilled(false);
         startButton.setBorderPainted(false);
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                clip.stop();
-            }
+        startButton.addActionListener(e -> {
+            clip.stop();
+            setVisible(false);
+            Application.getInstance().setContentPane(new PokedexMenu());
         });
 
         add(startButton);

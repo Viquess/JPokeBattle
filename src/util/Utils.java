@@ -3,6 +3,9 @@ package util;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
+import java.awt.*;
 import java.net.URL;
 
 public class Utils {
@@ -13,6 +16,21 @@ public class Utils {
      */
     public static URL getURL(String path) {
         return Utils.class.getResource("..\\".concat(path));
+    }
+
+    /**
+     * Imposta il font base dell'UI
+     * @param font font da impostare
+     */
+    public static void setUIFont(FontUIResource font) {
+        UIManager.getDefaults().keys().asIterator().forEachRemaining(k -> {
+            if (UIManager.get(k) instanceof FontUIResource)
+                UIManager.put(k, font);
+        });
+    }
+
+    public static Image resize(Image image, int width, int height) {
+        return image.getScaledInstance(width, height, Image.SCALE_DEFAULT);
     }
 
     /**
