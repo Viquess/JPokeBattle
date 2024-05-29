@@ -14,6 +14,9 @@ public class StartMenu extends JPanel {
     private JButton startButton;
     private Clip clip;
 
+    /**
+     * Inizializza il menù di start
+     */
     public StartMenu() {
         super();
         setLayout(null);

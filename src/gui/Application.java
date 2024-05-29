@@ -8,6 +8,9 @@ import java.util.Arrays;
 public class Application extends JFrame {
     private static Application instance;
 
+    /**
+     * Inizializza l'applicazione
+     */
     public Application() {
         super("JPokeBattle");
         pack();

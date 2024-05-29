@@ -26,9 +26,13 @@ public class PokedexMenu extends JPanel {
     private JLabel infoStats;
     private JLabel infoTypes;
     private JButton addButton;
+    private JButton fightButton;
     private PokemonImpl selected;
     private List<JComponent> teamComponents = new ArrayList<>();
 
+    /**
+     * Inizializza il menù del Pokedex
+     */
     public PokedexMenu() {
         super(null);
 
@@ -38,6 +42,15 @@ public class PokedexMenu extends JPanel {
         addButton.setPressedIcon(Utils.resize(new ImageIcon(Utils.getURL("files\\pokedex\\add_pressed.png")), 100, 35));
         addButton.setDisabledIcon(Utils.resize(new ImageIcon(Utils.getURL("files\\pokedex\\add_disabled.png")), 100, 35));
         add(addButton);
+
+        fightButton = new CustomButton(new ImageIcon(Utils.getURL("files\\pokedex\\fight.png")), 750, 440, 130, 46);
+        fightButton.setDisabledIcon(new ImageIcon(Utils.getURL("files\\pokedex\\fight_disabled.png")));
+        fightButton.setEnabled(false);
+        fightButton.addActionListener(e -> {
+            setVisible(false);
+            Application.getInstance().setContentPane(new FightMenu());
+        });
+        add(fightButton);
 
         AtomicInteger i = new AtomicInteger();
         Datas.getPokemons().forEach((k, v) -> {
@@ -69,6 +82,7 @@ public class PokedexMenu extends JPanel {
 
                 addButton.addActionListener(e -> {
                     addButton.setEnabled(false);
+                    fightButton.setEnabled(true);
                     team.add(v);
                     refreshTeam();
                 });
@@ -98,6 +112,7 @@ public class PokedexMenu extends JPanel {
                 addButton.removeActionListener(addButton.getActionListeners()[0]);
                 addButton.addActionListener(event -> {
                     addButton.setEnabled(false);
+                    fightButton.setEnabled(true);
                     team.add(v);
                     refreshTeam();
                 });
@@ -165,6 +180,9 @@ public class PokedexMenu extends JPanel {
                     addButton.setEnabled(true);
 
                 team.remove(pokemon);
+                if (team.size() == 0)
+                    fightButton.setEnabled(false);
+
                 refreshTeam();
             });
 
