@@ -14,37 +14,37 @@ public class Gengar extends PokemonImpl {
 
     @Override
     public Types[] getTypes() {
-        return new Types[0];
+        return new Types[]{Types.GHOST, Types.POISON};
     }
 
     @Override
     public int getHp() {
-        return 0;
+        return 60;
     }
 
     @Override
     public int getAttack() {
-        return 0;
+        return 65;
     }
 
     @Override
     public int getDefense() {
-        return 0;
+        return 60;
     }
 
     @Override
     public int getSpAtk() {
-        return 0;
+        return 130;
     }
 
     @Override
     public int getSpDef() {
-        return 0;
+        return 75;
     }
 
     @Override
     public int getSpeed() {
-        return 0;
+        return 110;
     }
 
     @Override

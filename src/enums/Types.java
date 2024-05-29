@@ -1,5 +1,9 @@
 package enums;
 
+import util.Utils;
+
+import javax.swing.*;
+
 public enum Types {
     NORMAL(new String[]{}, new String[]{"ROCK", "STEEL"}, new String[]{"GHOST"}),
     FIRE(new String[]{"GRASS", "ICE", "BUG", "STEEL"}, new String[]{"FIRE", "WATER", "ROCK", "DRAGON"}, new String[]{}),
@@ -26,5 +30,9 @@ public enum Types {
         this.superEffective = superEffective;
         this.notVeryEffective = notVeryEffective;
         this.noEffect = noEffect;
+    }
+
+    public ImageIcon getTag(int width) {
+        return Utils.resize(new ImageIcon(Utils.getURL("files\\types\\%s.png".formatted(name().toLowerCase()))), width, width / 2);
     }
 }

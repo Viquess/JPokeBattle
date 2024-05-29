@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) throws IOException, FontFormatException {
         registerPokemons();
 
-        InputStream is = Main.class.getClassLoader().getResourceAsStream("files/PokemonFont.ttf");
+        InputStream is = Main.class.getClassLoader().getResourceAsStream("files\\PokemonFont.ttf");
         if (is != null)
             Utils.setUIFont(new FontUIResource(Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(12f)));
 

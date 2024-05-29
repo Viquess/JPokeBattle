@@ -6,11 +6,13 @@ import javax.sound.sampled.Clip;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
+import java.io.InputStream;
 import java.net.URL;
 
 public class Utils {
     /**
      * Ottieni l'URL di un file
+     *
      * @param path Percorso del file
      * @return URL del file
      */
@@ -20,21 +22,36 @@ public class Utils {
 
     /**
      * Imposta il font base dell'UI
+     *
      * @param font font da impostare
      */
     public static void setUIFont(FontUIResource font) {
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(font);
+
         UIManager.getDefaults().keys().asIterator().forEachRemaining(k -> {
             if (UIManager.get(k) instanceof FontUIResource)
                 UIManager.put(k, font);
         });
     }
 
-    public static Image resize(Image image, int width, int height) {
-        return image.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+    public static FontUIResource getFont(String path, float dimension) {
+        try {
+            InputStream is = Utils.class.getClassLoader().getResourceAsStream(path);
+            return is == null ? null : new FontUIResource(Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(dimension));
+        } catch (Exception e) {
+        }
+
+        return null;
+    }
+
+    public static ImageIcon resize(ImageIcon icon, int width, int height) {
+        return new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
     }
 
     /**
      * Avvia la riproduzione di un file .wav
+     *
      * @param path Percorso del file
      * @return Clip riprodotta
      */

@@ -4,13 +4,16 @@ import enums.MoveTypes;
 import enums.Types;
 import util.Datas;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class PokemonImpl implements Pokemon {
     private final String id = getClass().getSimpleName().toLowerCase();
     protected List<Move> moves = new ArrayList<>();
+
+    public String getId() {
+        return id;
+    }
 
     @Override
     public abstract String getDisplayName();

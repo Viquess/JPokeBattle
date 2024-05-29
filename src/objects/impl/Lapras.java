@@ -9,42 +9,42 @@ import java.util.List;
 public class Lapras extends PokemonImpl {
     @Override
     public String getDisplayName() {
-        return "Raichu";
+        return "Lapras";
     }
 
     @Override
     public Types[] getTypes() {
-        return new Types[0];
+        return new Types[]{Types.WATER, Types.ICE};
     }
 
     @Override
     public int getHp() {
-        return 0;
+        return 130;
     }
 
     @Override
     public int getAttack() {
-        return 0;
+        return 85;
     }
 
     @Override
     public int getDefense() {
-        return 0;
+        return 80;
     }
 
     @Override
     public int getSpAtk() {
-        return 0;
+        return 85;
     }
 
     @Override
     public int getSpDef() {
-        return 0;
+        return 95;
     }
 
     @Override
     public int getSpeed() {
-        return 0;
+        return 60;
     }
 
     @Override

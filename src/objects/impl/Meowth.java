@@ -14,37 +14,37 @@ public class Meowth extends PokemonImpl {
 
     @Override
     public Types[] getTypes() {
-        return new Types[0];
+        return new Types[]{Types.NORMAL};
     }
 
     @Override
     public int getHp() {
-        return 0;
+        return 40;
     }
 
     @Override
     public int getAttack() {
-        return 0;
+        return 45;
     }
 
     @Override
     public int getDefense() {
-        return 0;
+        return 35;
     }
 
     @Override
     public int getSpAtk() {
-        return 0;
+        return 40;
     }
 
     @Override
     public int getSpDef() {
-        return 0;
+        return 40;
     }
 
     @Override
     public int getSpeed() {
-        return 0;
+        return 90;
     }
 
     @Override
