@@ -11,6 +11,11 @@ import java.net.URL;
 
 public class Utils {
     /**
+     * Clip attualmente in riproduzione
+     */
+    private static Clip clip;
+
+    /**
      * Ottieni l'URL di un file
      *
      * @param path Percorso del file
@@ -55,14 +60,18 @@ public class Utils {
      * @param path Percorso del file
      * @return Clip riprodotta
      */
-    public static Clip playMusic(String path) {
+    public static void playMusic(String path) {
+        if (clip != null)
+            clip.stop();
+
         try {
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(Utils.getURL(path));
             Clip clip = AudioSystem.getClip();
             clip.open(audioIn);
             clip.loop(Clip.LOOP_CONTINUOUSLY);
             clip.start();
-            return clip;
+
+            Utils.clip = clip;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

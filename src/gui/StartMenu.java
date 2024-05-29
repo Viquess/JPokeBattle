@@ -4,7 +4,6 @@ import gui.components.CustomButton;
 import util.Utils;
 
 import javax.imageio.ImageIO;
-import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -12,7 +11,6 @@ import java.io.IOException;
 public class StartMenu extends JPanel {
     private JLabel title;
     private JButton startButton;
-    private Clip clip;
 
     /**
      * Inizializza il menù di start
@@ -21,7 +19,7 @@ public class StartMenu extends JPanel {
         super();
         setLayout(null);
 
-        clip = Utils.playMusic("files\\start\\sound.wav");
+        Utils.playMusic("files\\start\\sound.wav");
 
         title = new JLabel(new ImageIcon(Utils.getURL("files\\start\\JPokeBattle.png")));
         title.setBounds(0,-10, 960, 327);

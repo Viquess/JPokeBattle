@@ -48,6 +48,7 @@ public class PokedexMenu extends JPanel {
         fightButton.setEnabled(false);
         fightButton.addActionListener(e -> {
             setVisible(false);
+            Utils.playMusic("files\\battle\\sound.wav");
             Application.getInstance().setContentPane(new FightMenu());
         });
         add(fightButton);
