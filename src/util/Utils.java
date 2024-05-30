@@ -8,6 +8,8 @@ import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class Utils {
     /**
@@ -25,15 +27,18 @@ public class Utils {
         return Utils.class.getResource("..\\".concat(path));
     }
 
+
+    public static void registerFonts(FontUIResource... fonts) {
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        for (FontUIResource font : fonts)
+            ge.registerFont(font);
+    }
     /**
      * Imposta il font base dell'UI
      *
      * @param font font da impostare
      */
     public static void setUIFont(FontUIResource font) {
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        ge.registerFont(font);
-
         UIManager.getDefaults().keys().asIterator().forEachRemaining(k -> {
             if (UIManager.get(k) instanceof FontUIResource)
                 UIManager.put(k, font);
@@ -75,5 +80,25 @@ public class Utils {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    /**
+     * Ottieni un numero casuale in un intervallo
+     * @param min Estremo inferiore dell'intervallo
+     * @param max Estremo superiore dell'intervallo
+     * @return Numero casuale
+     */
+    public static int randNumber(int min, int max) {
+        return (int) ((Math.random() * ((max - min) + 1)) + min);
+    }
+
+    /**
+     * Ottieni un elemento casuale da una collezione
+     * @param collection Collezione di oggetti
+     * @return Elemento casuale della collezione
+     * @param <T> Tipo degli elementi nella collezione
+     */
+    public static <T> T randOf(Collection<T> collection) {
+        return new ArrayList<>(collection).get(randNumber(0, collection.size()-1));
     }
 }

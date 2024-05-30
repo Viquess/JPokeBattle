@@ -49,18 +49,18 @@ public class PokedexMenu extends JPanel {
         fightButton.addActionListener(e -> {
             setVisible(false);
             Utils.playMusic("files\\battle\\sound.wav");
-            Application.getInstance().setContentPane(new FightMenu());
+            Application.getInstance().setContentPane(new FightMenu(team, Team.getRandom(1)));
         });
         add(fightButton);
 
         AtomicInteger i = new AtomicInteger();
         Datas.getPokemons().forEach((k, v) -> {
-            JButton pokemon = new CustomButton(Utils.resize(new ImageIcon(Utils.getURL("files\\sprites\\%s.png".formatted(k))), 70, 70),
+            JButton pokemon = new CustomButton(Utils.resize(v.getFrontSprite(), 70, 70),
                     475 + (i.get() % 4) * 105, 140 + (i.get() / 4) * 90, 80, 80);
 
             if (i.get() == 0) {
-                infoTitle = new JLabel(new ImageIcon(Utils.getURL("files\\sprites\\arbok.png")));
-                infoTitle.setText("<html><b>Arbok</b></html>");
+                infoTitle = new JLabel(v.getFrontSprite());
+                infoTitle.setText("<html><b>%s</b></html>".formatted(v.getDisplayName()));
                 infoTitle.setBounds(270, 135, 125, 80);
                 infoTitle.setHorizontalTextPosition(JLabel.CENTER);
                 infoTitle.setVerticalTextPosition(JLabel.BOTTOM);
@@ -95,7 +95,7 @@ public class PokedexMenu extends JPanel {
 
             pokemon.setBorder(new LineBorder(Color.decode("#E86742"), 4, true));
             pokemon.addActionListener(e -> {
-                infoTitle.setIcon(new ImageIcon(Utils.getURL("files\\sprites\\%s.png".formatted(k))));
+                infoTitle.setIcon(v.getFrontSprite());
                 infoTitle.setText("<html><b>%s</b></html>".formatted(v.getDisplayName()));
 
                 infoStats.setText("<html><br>PS >> %s<br>Att >> %s<br>Dif >> %s<br>A.Sp >> %s<br>D.Sp >> %s<br>Vel >> %s</html>".formatted(v.getHp(), v.getAttack(), v.getDefense(), v.getSpAtk(), v.getSpDef(), v.getSpeed()));

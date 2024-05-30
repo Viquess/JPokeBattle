@@ -3,26 +3,60 @@ package gui.components;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicProgressBarUI;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CustomBar extends JProgressBar {
+    private boolean isDecrementing = false;
 
-    public CustomBar(int min, int max, Color start, Color end) {
+    public CustomBar(int min, int max, Color start, Color mid, Color end) {
         super(min, max);
+        setBorderPainted(false);
         setUI(new CustomBarUI());
-        setBackground(new Color(0, 0, 0, 0));
-        setForeground(Color.decode("#da6a6a"));
 
         addChangeListener(e -> {
-            int red = (start.getRed() * getValue() / 100) + (end.getRed() * (100 - getValue()) / 100);
-            int green = (start.getGreen() * getValue() / 100) + (end.getGreen() * (100 - getValue()) / 100);
-            int blue = (start.getBlue() * getValue() / 100) + (end.getBlue() * (100 - getValue()) / 100);
+            int r, g, b;
+            float ratio = (float) getValue() / max;
 
-            setForeground(new Color(red, green, blue));
+            if (ratio > 0.5) {
+                r = (int) (mid.getRed() + (start.getRed() - mid.getRed()) * (ratio - 0.5) * 2);
+                g = (int) (mid.getGreen() + (start.getGreen() - mid.getGreen()) * (ratio - 0.5) * 2);
+                b = (int) (mid.getBlue() + (start.getBlue() - mid.getBlue()) * (ratio - 0.5) * 2);
+            } else {
+                r = (int) (end.getRed() + (mid.getRed() - end.getRed()) * ratio * 2);
+                g = (int) (end.getGreen() + (mid.getGreen() - end.getGreen()) * ratio * 2);
+                b = (int) (end.getBlue() + (mid.getBlue() - end.getBlue()) * ratio * 2);
+            }
+
+            setForeground(new Color(r, g, b));
         });
     }
 
-    private class CustomBarUI extends BasicProgressBarUI {
-        private int arc = 6;
+    public void decrement(int quantity) {
+        if (isDecrementing)
+            return;
+
+        isDecrementing = true;
+        Timer timer = new Timer(16, new ActionListener() {
+            int count = quantity;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (count == 0) {
+                    ((Timer) e.getSource()).stop();
+                    isDecrementing = false;
+                    return;
+                }
+
+                count--;
+                setValue(getValue() - 1);
+            }
+        });
+
+        timer.start();
+    }
+
+    private static class CustomBarUI extends BasicProgressBarUI {
 
         @Override
         protected void paintDeterminate(Graphics g, JComponent c) {
@@ -33,6 +67,7 @@ public class CustomBar extends JProgressBar {
             int width = progressBar.getWidth() - insets.left - insets.right;
             int height = progressBar.getHeight() - insets.top - insets.bottom;
 
+            int arc = 6;
             g2d.setColor(progressBar.getBackground());
             g2d.fillRoundRect(insets.left, insets.top, width, height, arc, arc);
 

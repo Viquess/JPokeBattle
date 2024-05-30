@@ -1,10 +1,27 @@
 package objects;
 
+import util.Datas;
+import util.Utils;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Team {
     private List<PokemonImpl> pokemons;
+
+    public static Team getRandom(int size) {
+        Team team = new Team();
+
+        for (int i = 0; i < size; i++) {
+            PokemonImpl pokemon = Utils.randOf(Datas.getPokemons().values());
+            while (team.contains(pokemon))
+                pokemon = Utils.randOf(Datas.getPokemons().values());
+
+            team.add(pokemon);
+        }
+
+        return team;
+    }
 
     /**
      * Crea un nuovo Team

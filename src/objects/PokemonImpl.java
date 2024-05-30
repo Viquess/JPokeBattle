@@ -3,7 +3,9 @@ package objects;
 import enums.MoveTypes;
 import enums.Types;
 import util.Datas;
+import util.Utils;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,14 @@ public abstract class PokemonImpl implements Pokemon {
 
     public String getId() {
         return id;
+    }
+
+    public ImageIcon getFrontSprite() {
+        return new ImageIcon(Utils.getURL("files\\sprites\\front\\%s.png".formatted(getId())));
+    }
+
+    public ImageIcon getBackSprite() {
+        return new ImageIcon(Utils.getURL("files\\sprites\\back\\%s.png".formatted(getId())));
     }
 
     @Override
