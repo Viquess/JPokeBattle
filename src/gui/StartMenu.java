@@ -28,6 +28,7 @@ public class StartMenu extends JPanel {
         startButton.setPressedIcon(new ImageIcon(Utils.getURL("files\\start\\startPressed.png")));
         startButton.addActionListener(e -> {
             setVisible(false);
+            Utils.playSound("files\\sounds\\pling.wav");
             Application.getInstance().setContentPane(new PokedexMenu());
         });
 

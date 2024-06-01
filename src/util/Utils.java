@@ -83,6 +83,23 @@ public class Utils {
     }
 
     /**
+     * Riproduci un effetto sonoro (file .wav)
+     *
+     * @param path Percorso del file
+     * @return Effetto riprodotto
+     */
+    public static void playSound(String path) {
+        try {
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(Utils.getURL(path));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
      * Ottieni un numero casuale in un intervallo
      * @param min Estremo inferiore dell'intervallo
      * @param max Estremo superiore dell'intervallo

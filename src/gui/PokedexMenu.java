@@ -44,10 +44,12 @@ public class PokedexMenu extends JPanel {
         add(addButton);
 
         fightButton = new CustomButton(new ImageIcon(Utils.getURL("files\\pokedex\\fight.png")), 750, 440, 130, 46);
+        fightButton.setPressedIcon(new ImageIcon(Utils.getURL("files\\pokedex\\fight_pressed.png")));
         fightButton.setDisabledIcon(new ImageIcon(Utils.getURL("files\\pokedex\\fight_disabled.png")));
         fightButton.setEnabled(false);
         fightButton.addActionListener(e -> {
             setVisible(false);
+            Utils.playSound("files\\sounds\\pling.wav");
             Utils.playMusic("files\\battle\\sound.wav");
             Application.getInstance().setContentPane(new FightMenu(team, Team.getRandom(1)));
         });
@@ -82,11 +84,14 @@ public class PokedexMenu extends JPanel {
                 }
 
                 addButton.addActionListener(e -> {
-                    addButton.setEnabled(false);
+                    Utils.playSound("files\\sounds\\pling.wav");
                     fightButton.setEnabled(true);
+                    addButton.setEnabled(false);
                     team.add(v);
                     refreshTeam();
                 });
+
+                selected = v;
 
                 add(infoTitle);
                 add(infoStats);
@@ -112,8 +117,9 @@ public class PokedexMenu extends JPanel {
                 addButton.setEnabled(!team.contains(v) && !team.isFull());
                 addButton.removeActionListener(addButton.getActionListeners()[0]);
                 addButton.addActionListener(event -> {
-                    addButton.setEnabled(false);
+                    Utils.playSound("files\\sounds\\pling.wav");
                     fightButton.setEnabled(true);
+                    addButton.setEnabled(false);
                     team.add(v);
                     refreshTeam();
                 });
