@@ -49,6 +49,9 @@ public class Squirtle extends PokemonImpl {
 
     @Override
     public List<MoveTypes> getLearnableMoves() {
-        return List.of();
+        return List.of(MoveTypes.TACKLE, MoveTypes.TAIL_WHIP, MoveTypes.WATER_GUN, MoveTypes.WITHDRAW,
+                MoveTypes.BUBBLE, MoveTypes.BITE, MoveTypes.RAPID_SPIN, MoveTypes.PROTECT,
+                MoveTypes.WATER_PULSE, MoveTypes.AQUA_TAIL, MoveTypes.SKULL_BASH, MoveTypes.IRON_DEFENSE,
+                MoveTypes.RAIN_DANCE, MoveTypes.HYDRO_PUMP);
     }
 }

@@ -49,6 +49,10 @@ public class Ninetales extends PokemonImpl {
 
     @Override
     public List<MoveTypes> getLearnableMoves() {
-        return List.of();
+        return List.of(MoveTypes.EMBER, MoveTypes.TAIL_WHIP, MoveTypes.ROAR, MoveTypes.QUICK_ATTACK,
+                MoveTypes.CONFUSE_RAY, MoveTypes.SAFEGUARD, MoveTypes.INCINERATE, MoveTypes.FEINT_ATTACK,
+                MoveTypes.HEX, MoveTypes.FLAME_BURST, MoveTypes.WILL_O_WISP, MoveTypes.PAYBACK,
+                MoveTypes.FLAMETHROWER, MoveTypes.IMPRISON, MoveTypes.FIRE_BLAST, MoveTypes.GRUDGE,
+                MoveTypes.CAPTIVATE, MoveTypes.INFERNO);
     }
 }

@@ -49,6 +49,8 @@ public class Umbreon extends PokemonImpl {
 
     @Override
     public List<MoveTypes> getLearnableMoves() {
-        return List.of();
+        return List.of(MoveTypes.TACKLE, MoveTypes.TAIL_WHIP, MoveTypes.HELPING_HAND, MoveTypes.SAND_ATTACK,
+                MoveTypes.PURSUIT, MoveTypes.QUICK_ATTACK, MoveTypes.CONFUSE_RAY, MoveTypes.FEINT_ATTACK,
+                MoveTypes.ASSURANCE, MoveTypes.SCREECH, MoveTypes.MOONLIGHT, MoveTypes.MEAN_LOOK, MoveTypes.LAST_RESORT);
     }
 }

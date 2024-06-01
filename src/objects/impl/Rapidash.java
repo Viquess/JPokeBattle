@@ -49,6 +49,9 @@ public class Rapidash extends PokemonImpl {
 
     @Override
     public List<MoveTypes> getLearnableMoves() {
-        return List.of();
+        return List.of(MoveTypes.QUICK_ATTACK, MoveTypes.GROWL, MoveTypes.TAIL_WHIP, MoveTypes.EMBER,
+                MoveTypes.FLAME_WHEEL, MoveTypes.STOMP, MoveTypes.FLAME_CHARGE, MoveTypes.AGILITY,
+                MoveTypes.FIRE_SPIN, MoveTypes.TAKE_DOWN, MoveTypes.INFERNO, MoveTypes.FIRE_BLAST,
+                MoveTypes.BOUNCE, MoveTypes.FLARE_BLITZ);
     }
 }

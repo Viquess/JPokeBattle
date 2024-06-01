@@ -49,6 +49,10 @@ public class Arbok extends PokemonImpl {
 
     @Override
     public List<MoveTypes> getLearnableMoves() {
-        return List.of();
+        return List.of(MoveTypes.BITE, MoveTypes.FIRE_FANG, MoveTypes.ICE_FANG, MoveTypes.LEER,
+                MoveTypes.POISON_STING, MoveTypes.THUNDER_FANG, MoveTypes.WRAP, MoveTypes.GLARE,
+                MoveTypes.SCREECH, MoveTypes.ACID, MoveTypes.SPIT_UP, MoveTypes.STOCKPILE,
+                MoveTypes.SWALLOW, MoveTypes.ACID_SPRAY, MoveTypes.SLUDGE_BOMB, MoveTypes.GASTRO_ACID,
+                MoveTypes.BELCH, MoveTypes.HAZE, MoveTypes.COIL, MoveTypes.GUNK_SHOT);
     }
 }

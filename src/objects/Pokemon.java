@@ -72,9 +72,15 @@ public interface Pokemon {
     void register();
 
     /**
-     * Ottieni una nuova istanza del Pokemon
+     * Ottieni una nuova istanza del Pokemon usando le mosse indicate
      * @param moves Mosse del pokemon
      * @return Nuova istanza del Pokemon
      */
     Pokemon newInstance(List<Move> moves);
+
+    /**
+     * Ottieni una nuova istanza del Pokemon
+     * @return Nuova istanza del Pokemon
+     */
+    Pokemon newInstance();
 }

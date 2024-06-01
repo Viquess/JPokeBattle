@@ -87,7 +87,7 @@ public class PokedexMenu extends JPanel {
                     Utils.playSound("files\\sounds\\pling.wav");
                     fightButton.setEnabled(true);
                     addButton.setEnabled(false);
-                    team.add(v);
+                    team.add(v.newInstance());
                     refreshTeam();
                 });
 
@@ -120,7 +120,7 @@ public class PokedexMenu extends JPanel {
                     Utils.playSound("files\\sounds\\pling.wav");
                     fightButton.setEnabled(true);
                     addButton.setEnabled(false);
-                    team.add(v);
+                    team.add(v.newInstance());
                     refreshTeam();
                 });
 

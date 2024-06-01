@@ -49,6 +49,9 @@ public class Raichu extends PokemonImpl {
 
     @Override
     public List<MoveTypes> getLearnableMoves() {
-        return List.of();
+        return List.of(MoveTypes.THUNDER_SHOCK, MoveTypes.TAIL_WHIP, MoveTypes.QUICK_ATTACK, MoveTypes.DOUBLE_TEAM,
+                MoveTypes.ELECTRO_BALL, MoveTypes.THUNDER_WAVE, MoveTypes.FEINT, MoveTypes.SPARK,
+                MoveTypes.NUZZLE, MoveTypes.DISCHARGE, MoveTypes.SLAM, MoveTypes.THUNDERBOLT,
+                MoveTypes.AGILITY, MoveTypes.WILD_CHARGE, MoveTypes.LIGHT_SCREEN, MoveTypes.THUNDER);
     }
 }

@@ -49,6 +49,9 @@ public class Pidgeot extends PokemonImpl {
 
     @Override
     public List<MoveTypes> getLearnableMoves() {
-        return List.of();
+        return List.of(MoveTypes.TACKLE, MoveTypes.SAND_ATTACK, MoveTypes.GUST, MoveTypes.QUICK_ATTACK,
+                MoveTypes.WHIRLWIND, MoveTypes.TWISTER, MoveTypes.FEATHER_DANCE, MoveTypes.AGILITY,
+                MoveTypes.WING_ATTACK, MoveTypes.ROOST, MoveTypes.TAILWIND, MoveTypes.MIRROR_MOVE,
+                MoveTypes.AIR_SLASH, MoveTypes.HURRICANE);
     }
 }

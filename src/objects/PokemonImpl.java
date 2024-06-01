@@ -58,7 +58,19 @@ public abstract class PokemonImpl implements Pokemon {
     }
 
     public void setMoves(List<Move> moves) {
+        if (moves.size() > 4)
+            moves.subList(0, 3);
+
         this.moves = moves;
+    }
+
+    public boolean addMove(Move move) {
+        if (moves.size() < 4) {
+            moves.add(move);
+            return true;
+        }
+
+        return false;
     }
 
     @Override
@@ -70,12 +82,39 @@ public abstract class PokemonImpl implements Pokemon {
     public PokemonImpl newInstance(List<Move> moves) {
         try {
             PokemonImpl classe = getClass().getDeclaredConstructor().newInstance();
-            moves.removeIf(move -> !classe.getLearnableMoves().contains(move.getType()));
+            moves.removeIf(move -> !classe.getLearnableMoves().contains(move.getMoveType()) || moves.indexOf(move) > 3);
+
             classe.setMoves(moves);
+            return classe;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public PokemonImpl newInstance() {
+        try {
+            PokemonImpl classe = getClass().getDeclaredConstructor().newInstance();
+            List<Move> moves = new ArrayList<>();
+            for (int i = 0; i < Math.min(4, classe.getLearnableMoves().size()); i++) {
+                Move move = new Move(Utils.randOf(classe.getLearnableMoves()));
+                while (classe.hasMove(move.getMoveType()))
+                    move = new Move(Utils.randOf(classe.getLearnableMoves()));
+
+                classe.addMove(move);
+            }
 
             return classe;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public boolean hasMove(MoveTypes type) {
+        for (Move move : moves)
+            if (move.getMoveType() == type)
+                return true;
+
+        return false;
     }
 }

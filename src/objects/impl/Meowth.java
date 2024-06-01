@@ -49,6 +49,9 @@ public class Meowth extends PokemonImpl {
 
     @Override
     public List<MoveTypes> getLearnableMoves() {
-        return List.of();
+        return List.of(MoveTypes.SCRATCH, MoveTypes.GROWL, MoveTypes.BITE, MoveTypes.FAKE_OUT,
+                MoveTypes.FURY_SWIPES, MoveTypes.SCREECH, MoveTypes.FEINT_ATTACK, MoveTypes.TAUNT,
+                MoveTypes.PAY_DAY, MoveTypes.SLASH, MoveTypes.NASTY_PLOT, MoveTypes.ASSURANCE,
+                MoveTypes.CAPTIVATE, MoveTypes.NIGHT_SLASH, MoveTypes.FEINT);
     }
 }

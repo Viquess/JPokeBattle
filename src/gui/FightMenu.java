@@ -1,5 +1,6 @@
 package gui;
 
+import enums.MoveTypes;
 import enums.Types;
 import gui.components.AnimatedLabel;
 import gui.components.CustomBar;
@@ -89,10 +90,11 @@ public class FightMenu extends JPanel {
                 button.setFont(Utils.getFont("files\\BattleFont.ttf", 26));
                 button.setForeground(Color.WHITE);
 
-                if (i < playerPokemon.getLearnableMoves().size()) {
-                    button.setText("Prova");
+                if (i < playerPokemon.getMoves().size()) {
+                    MoveTypes moveType = playerPokemon.getMoves().get(i).getMoveType();
+                    button.setText(moveType.getDisplayName());
                     button.setHorizontalTextPosition(SwingConstants.CENTER);
-                    button.add(new JLabel(Types.NORMAL.getTag(40)));
+                    button.add(new JLabel(moveType.getType().getTag(40)));
                 } else
                     button.setEnabled(false);
 
@@ -135,6 +137,9 @@ public class FightMenu extends JPanel {
         runButton = new CustomButton(new ImageIcon(Utils.getURL("files\\battle\\run.png")), 865, 389, 46, 92);
         runButton.setPressedIcon(new ImageIcon(Utils.getURL("files\\battle\\run_pressed.png")));
         runButton.addActionListener(e -> {
+            if (message.isAppearingText())
+                return;
+
             for (JButton actualButton : actualButtons)
                 remove(actualButton);
 

@@ -49,6 +49,9 @@ public class Lapras extends PokemonImpl {
 
     @Override
     public List<MoveTypes> getLearnableMoves() {
-        return List.of();
+        return List.of(MoveTypes.GROWL, MoveTypes.WATER_GUN, MoveTypes.SING, MoveTypes.MIST,
+                MoveTypes.LIFE_DEW, MoveTypes.ICE_SHARD, MoveTypes.CONFUSE_RAY, MoveTypes.WATER_PULSE,
+                MoveTypes.ICE_BEAM, MoveTypes.BODY_SLAM, MoveTypes.RAIN_DANCE, MoveTypes.PERISH_SONG,
+                MoveTypes.BRINE, MoveTypes.SAFEGUARD, MoveTypes.HYDRO_PUMP, MoveTypes.BLIZZARD, MoveTypes.SHEER_COLD);
     }
 }

@@ -49,6 +49,8 @@ public class Charmander extends PokemonImpl {
 
     @Override
     public List<MoveTypes> getLearnableMoves() {
-        return List.of();
+        return List.of(MoveTypes.GROWL, MoveTypes.SCRATCH, MoveTypes.EMBER, MoveTypes.SMOKESCREEN,
+                MoveTypes.DRAGON_BREATH, MoveTypes.FIRE_FANG, MoveTypes.SLASH, MoveTypes.FLAMETHROWER,
+                MoveTypes.SCARY_FACE, MoveTypes.FIRE_SPIN, MoveTypes.INFERNO, MoveTypes.FLARE_BLITZ);
     }
 }

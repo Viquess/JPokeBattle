@@ -17,7 +17,7 @@ public class Team {
             while (team.contains(pokemon))
                 pokemon = Utils.randOf(Datas.getPokemons().values());
 
-            team.add(pokemon);
+            team.add(pokemon.newInstance());
         }
 
         return team;

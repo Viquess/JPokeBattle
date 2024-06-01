@@ -49,6 +49,9 @@ public class Gengar extends PokemonImpl {
 
     @Override
     public List<MoveTypes> getLearnableMoves() {
-        return List.of();
+        return List.of(MoveTypes.LICK, MoveTypes.HYPNOSIS, MoveTypes.SPITE, MoveTypes.MEAN_LOOK,
+                MoveTypes.CURSE, MoveTypes.NIGHT_SHADE, MoveTypes.CONFUSE_RAY, MoveTypes.SUCKER_PUNCH,
+                MoveTypes.PAYBACK, MoveTypes.SHADOW_BALL, MoveTypes.DARK_PULSE, MoveTypes.DESTINY_BOND,
+                MoveTypes.HEX, MoveTypes.DREAM_EATER);
     }
 }
