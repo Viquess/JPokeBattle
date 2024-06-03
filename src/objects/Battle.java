@@ -50,10 +50,36 @@ public class Battle {
     }
 
     /**
+     * Imposta il Pokemon attualmente utilizzato dal Player
+     * @param playerPokemon Pokemon da impostare
+     * @return True se il pokemon viene impostato, false altrimenti
+     */
+    public boolean setPlayerPokemon(PokemonImpl playerPokemon) {
+        if (!playerTeam.contains(playerPokemon))
+            return false;
+
+        this.playerPokemon = playerPokemon;
+        return true;
+    }
+
+    /**
      * Ottieni il Pokemon attualmente utilizzato dall'avversario
      * @return Pokemon attualmente utilizzato dall'avversario
      */
     public PokemonImpl getOpponentPokemon() {
         return opponentPokemon;
+    }
+
+    /**
+     * Imposta il Pokemon attualmente utilizzato dall'avversario
+     * @param opponentPokemon Pokemon da impostare
+     * @return True se il pokemon viene impostato, false altrimenti
+     */
+    public boolean setOpponentPokemon(PokemonImpl opponentPokemon) {
+        if (!opponentTeam.contains(opponentPokemon))
+            return false;
+
+        this.opponentPokemon = opponentPokemon;
+        return true;
     }
 }

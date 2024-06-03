@@ -23,11 +23,11 @@ public class FightMenu extends JPanel {
     JLabel playerSprite, opponentSprite, playerName, opponentName, playerLv, opponentLv, playerHP;
     AnimatedLabel message;
     JButton fightButton, pokemonButton, runButton;
-    List<JButton> actualButtons;
+    List<JComponent> actualComponents;
 
     public FightMenu(Team playerTeam, Team opponentTeam) {
         super(null);
-        actualButtons = new ArrayList<>();
+        actualComponents = new ArrayList<>();
         battle = new Battle(playerTeam, opponentTeam);
 
         PokemonImpl playerPokemon = battle.getPlayerPokemon();
@@ -80,10 +80,10 @@ public class FightMenu extends JPanel {
         fightButton.addActionListener(e -> {
             message.setVisible(false);
 
-            for (JButton actualButton : actualButtons)
-                remove(actualButton);
+            for (JComponent component : actualComponents)
+                remove(component);
 
-            actualButtons.clear();
+            actualComponents.clear();
             for (int i = 0; i < 4; i++) {
                 JButton button = new CustomButton(new ImageIcon(Utils.getURL("files\\battle\\move.png")), 35 + (340 * (i < 2 ? i : i - 2)), i < 2 ? 389 : 435, 340, 46);
                 button.setPressedIcon(new ImageIcon(Utils.getURL("files\\battle\\move_pressed.png")));
@@ -92,13 +92,14 @@ public class FightMenu extends JPanel {
 
                 if (i < playerPokemon.getMoves().size()) {
                     MoveTypes moveType = playerPokemon.getMoves().get(i).getMoveType();
+
                     button.setText(moveType.getDisplayName());
                     button.setHorizontalTextPosition(SwingConstants.CENTER);
                     button.add(new JLabel(moveType.getType().getTag(40)));
                 } else
                     button.setEnabled(false);
 
-                actualButtons.add(button);
+                actualComponents.add(button);
                 add(button);
             }
 
@@ -110,24 +111,45 @@ public class FightMenu extends JPanel {
         pokemonButton.addActionListener(e -> {
             message.setVisible(false);
 
-            for (JButton actualButton : actualButtons)
-                remove(actualButton);
+            for (JComponent component : actualComponents)
+                remove(component);
 
-            actualButtons.clear();
+            actualComponents.clear();
             for (int i = 0; i < 6; i++) {
                 JButton button = new CustomButton(new ImageIcon(Utils.getURL("files\\battle\\pokemon_swap.png")), 35 + (226 * (i < 3 ? i : i - 3)), i < 3 ? 389 : 435, 226, 46);
                 button.setPressedIcon(new ImageIcon(Utils.getURL("files\\battle\\pokemon_swap_pressed.png")));
-                button.setFont(Utils.getFont("files\\BattleFont.ttf", 26));
+                button.setFont(Utils.getFont("files\\BattleFont.ttf", 16));
+                button.setHorizontalTextPosition(SwingConstants.CENTER);
                 button.setForeground(Color.WHITE);
 
-                if (i < battle.getPlayerTeam().size()) {
-                    button.setText(battle.getPlayerTeam().getPokemons().get(i).getDisplayName());
-                    button.setHorizontalTextPosition(SwingConstants.CENTER);
-                    button.add(new JLabel(Types.NORMAL.getTag(40)));
+                i: if (i < battle.getPlayerTeam().size()) {
+                    PokemonImpl pokemon = battle.getPlayerTeam().getPokemons().get(i);
+                    button.setText("%s (%s/%s)".formatted(pokemon.getDisplayName(), pokemon.getHp(), pokemon.getHp()));
+
+                    if (pokemon.getId().equalsIgnoreCase(playerPokemon.getId())) {
+                        button.setEnabled(false);
+                        break i;
+                    }
+
+                    button.addActionListener(event -> switchPokemon(pokemon, true));
+
+                    JLabel container = new JLabel();
+                    container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+                    container.setBounds(55 + (226 * (i < 3 ? i : i - 3)), i < 3 ? 413 : 459, 38, 0);
+                    for (Types type : pokemon.getTypes()) {
+                        Rectangle bounds = container.getBounds();
+                        ImageIcon tagImg = type.getTag(38);
+
+                        container.setBounds(bounds.x, bounds.y - tagImg.getIconHeight()/2, bounds.width, bounds.height + tagImg.getIconHeight());
+                        container.add(new JLabel(tagImg));
+                    }
+
+                    actualComponents.add(container);
+                    add(container);
                 } else
                     button.setEnabled(false);
 
-                actualButtons.add(button);
+                actualComponents.add(button);
                 add(button);
             }
 
@@ -140,10 +162,10 @@ public class FightMenu extends JPanel {
             if (message.isAppearingText())
                 return;
 
-            for (JButton actualButton : actualButtons)
-                remove(actualButton);
+            for (JComponent component : actualComponents)
+                remove(component);
 
-            actualButtons.clear();
+            actualComponents.clear();
 
             Utils.playSound("files\\sounds\\swish.wav");
             message.setVisible(true);
@@ -176,6 +198,19 @@ public class FightMenu extends JPanel {
             g.drawImage(ImageIO.read(Utils.getURL("files\\battle\\background.png")), 0, 0, null);
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private void switchPokemon(PokemonImpl pokemon, boolean playerTeam) {
+        if (playerTeam) {
+            if (!battle.setPlayerPokemon(pokemon))
+                return;
+
+            playerSprite.setIcon(Utils.resize(pokemon.getBackSprite(), 192, 192));
+            playerName.setText(pokemon.getDisplayName().toUpperCase());
+            playerHP.setText("<html><b>%s / %s</b></html>".formatted(pokemon.getHp(), pokemon.getHp()));
+            playerBar.setMaximum(pokemon.getHp());
+            playerBar.setValue(pokemon.getHp());
         }
     }
 }

@@ -8,15 +8,19 @@ import java.awt.event.ActionListener;
 
 public class CustomBar extends JProgressBar {
     private boolean isDecrementing = false;
+    private int min, max;
 
     public CustomBar(int min, int max, Color start, Color mid, Color end) {
         super(min, max);
+        this.min = min;
+        this.max = max;
+
         setBorderPainted(false);
         setUI(new CustomBarUI());
 
         addChangeListener(e -> {
             int r, g, b;
-            float ratio = (float) getValue() / max;
+            float ratio = (float) getValue() / this.max;
 
             if (ratio > 0.5) {
                 r = (int) (mid.getRed() + (start.getRed() - mid.getRed()) * (ratio - 0.5) * 2);
@@ -30,6 +34,19 @@ public class CustomBar extends JProgressBar {
 
             setForeground(new Color(r, g, b));
         });
+    }
+
+
+    @Override
+    public void setMinimum(int n) {
+        super.setMinimum(n);
+        min = n;
+    }
+
+    @Override
+    public void setMaximum(int n) {
+        super.setMaximum(n);
+        max = n;
     }
 
     public void decrement(int quantity) {

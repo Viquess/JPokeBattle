@@ -1,5 +1,6 @@
 package enums;
 
+import gui.FightMenu;
 import util.Utils;
 
 import javax.swing.*;
@@ -33,6 +34,6 @@ public enum Types {
     }
 
     public ImageIcon getTag(int width) {
-        return Utils.resize(new ImageIcon(Utils.getURL("files\\types\\%s.png".formatted(name().toLowerCase()))), width, width / 2);
+        return Utils.resize(new ImageIcon(Utils.getURL("files\\types\\%s.png".formatted(name().toLowerCase()))), width, (width*77)/176);
     }
 }
