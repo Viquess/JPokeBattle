@@ -7,8 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Team {
-    private List<PokemonImpl> pokemons;
+    private final List<PokemonImpl> pokemons;
 
+    /**
+     * Crea un nuovo Team con Pokemon randomici
+     *
+     * @param size Grandezza del Team
+     * @return Team randomico
+     */
     public static Team getRandom(int size) {
         Team team = new Team();
 
@@ -66,10 +72,9 @@ public class Team {
      * Rimuovi un pokemon dal Team
      *
      * @param pokemon Pokemon da rimuovere
-     * @return true se è stato possibile rimuoverlo, altrimenti false
      */
-    public boolean remove(PokemonImpl pokemon) {
-        return pokemons.remove(pokemon);
+    public void remove(PokemonImpl pokemon) {
+        pokemons.remove(pokemon);
     }
 
     /**

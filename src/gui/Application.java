@@ -9,7 +9,7 @@ public class Application extends JFrame {
     private static Application instance;
 
     /**
-     * Inizializza l'applicazione
+     * Istanzia l'applicazione
      */
     public Application() {
         super("JPokeBattle");

@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class CustomButton extends JButton {
     /**
-     * Inizializza un bottone con delle impostazioni predefinite
+     * Istanzia un bottone con delle impostazioni predefinite
      *
      * @param image  Immagine del bottone
      * @param x      Posizione x

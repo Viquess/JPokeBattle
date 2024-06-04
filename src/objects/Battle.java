@@ -5,7 +5,7 @@ public class Battle {
     private PokemonImpl playerPokemon, opponentPokemon;
 
     /**
-     * Inizializza una nuova battaglia
+     * Istanzia una nuova battaglia
      */
     public Battle() {
         playerTeam = new Team();
@@ -13,7 +13,7 @@ public class Battle {
     }
 
     /**
-     * Inizializza una nuova battaglia
+     * Istanzia una nuova battaglia
      *
      * @param playerTeam   Team del giocatore
      * @param opponentTeam Team avversario

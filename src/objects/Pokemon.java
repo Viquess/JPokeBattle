@@ -3,9 +3,17 @@ package objects;
 import enums.MoveTypes;
 import enums.Types;
 
+import javax.swing.*;
 import java.util.List;
 
 public interface Pokemon {
+    /**
+     * Ottieni l'ID del Pokemon
+     *
+     * @return ID del Pokemon
+     */
+    String getId();
+
     /**
      * Determina il nome del Pokemon
      *
@@ -102,6 +110,20 @@ public interface Pokemon {
      * @return True se ha la mossa, altrimenti false
      */
     boolean hasMove(MoveTypes type);
+
+    /**
+     * Ottieni lo sprite posteriore del Pokemon
+     *
+     * @return Sprite posteriore
+     */
+    ImageIcon getBackSprite();
+
+    /**
+     * Ottieni lo sprite frontale del Pokemon
+     *
+     * @return Sprite frontale
+     */
+    ImageIcon getFrontSprite();
 
     /**
      * Riproduci il grido del Pokemon

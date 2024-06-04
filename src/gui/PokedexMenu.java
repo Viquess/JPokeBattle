@@ -29,7 +29,7 @@ public class PokedexMenu extends JPanel {
     private final List<JComponent> teamComponents = new ArrayList<>();
 
     /**
-     * Inizializza il menù del Pokedex
+     * Istanzia il menù del Pokedex
      */
     public PokedexMenu() {
         super(null);

@@ -10,21 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class PokemonImpl implements Pokemon {
-    private final String id = getClass().getSimpleName().toLowerCase();
     protected List<Move> moves = new ArrayList<>();
     protected int hp;
-
-    public String getId() {
-        return id;
-    }
-
-    public ImageIcon getFrontSprite() {
-        return new ImageIcon(Utils.getURL("files\\sprites\\front\\%s.png".formatted(getId())));
-    }
-
-    public ImageIcon getBackSprite() {
-        return new ImageIcon(Utils.getURL("files\\sprites\\back\\%s.png".formatted(getId())));
-    }
 
     @Override
     public abstract String getDisplayName();
@@ -52,6 +39,11 @@ public abstract class PokemonImpl implements Pokemon {
 
     @Override
     public abstract List<MoveTypes> getLearnableMoves();
+
+    @Override
+    public String getId() {
+        return getClass().getSimpleName().toLowerCase();
+    }
 
     @Override
     public int getHp() {
@@ -84,13 +76,23 @@ public abstract class PokemonImpl implements Pokemon {
     }
 
     @Override
+    public ImageIcon getFrontSprite() {
+        return new ImageIcon(Utils.getURL("files\\sprites\\front\\%s.png".formatted(getId())));
+    }
+
+    @Override
+    public ImageIcon getBackSprite() {
+        return new ImageIcon(Utils.getURL("files\\sprites\\back\\%s.png".formatted(getId())));
+    }
+
+    @Override
     public void cry() {
-        Utils.playSound("files\\sounds\\cries\\%s.wav".formatted(id));
+        Utils.playSound("files\\sounds\\cries\\%s.wav".formatted(getId()));
     }
 
     @Override
     public void register() {
-        Datas.getPokemons().put(id, this);
+        Datas.getPokemons().put(getId(), this);
     }
 
     @Override

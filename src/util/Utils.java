@@ -28,6 +28,11 @@ public class Utils {
     }
 
 
+    /**
+     * Registra dei nuovi font
+     *
+     * @param fonts Font da registrare
+     */
     public static void registerFonts(FontUIResource... fonts) {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         for (FontUIResource font : fonts)
@@ -46,16 +51,29 @@ public class Utils {
         });
     }
 
+    /**
+     * Ottieni un Font delle dimensioni indicate
+     * @param path Percorso del Font
+     * @param dimension Dimensioni del Font
+     * @return Font
+     */
     public static FontUIResource getFont(String path, float dimension) {
         try {
             InputStream is = Utils.class.getClassLoader().getResourceAsStream(path);
             return is == null ? null : new FontUIResource(Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(dimension));
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
 
         return null;
     }
 
+    /**
+     * Ridimensiona un'immagine
+     * @param icon Immagine da ridimensionare
+     * @param width Nuova larghezza
+     * @param height Nuova altezza
+     * @return Immagine ridimensionata
+     */
     public static ImageIcon resize(ImageIcon icon, int width, int height) {
         return new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
     }
@@ -64,7 +82,6 @@ public class Utils {
      * Avvia la riproduzione di un file .wav
      *
      * @param path Percorso del file
-     * @return Clip riprodotta
      */
     public static void playMusic(String path) {
         if (clip != null)
@@ -87,7 +104,6 @@ public class Utils {
      * Riproduci un effetto sonoro (file .wav)
      *
      * @param path Percorso del file
-     * @return Effetto riprodotto
      */
     public static void playSound(String path) {
         try {

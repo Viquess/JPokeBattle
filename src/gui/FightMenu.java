@@ -2,8 +2,8 @@ package gui;
 
 import enums.MoveTypes;
 import enums.Types;
+import gui.components.AnimatedBar;
 import gui.components.AnimatedLabel;
-import gui.components.CustomBar;
 import gui.components.CustomButton;
 import objects.Battle;
 import objects.PokemonImpl;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FightMenu extends JPanel {
-    private final CustomBar playerBar, opponentBar;
+    private final AnimatedBar playerBar, opponentBar;
     private final AnimatedLabel playerSprite, opponentSprite;
     private final JButton fightButton, pokemonButton, runButton;
     private final AnimatedLabel message = new AnimatedLabel();
@@ -34,11 +34,11 @@ public class FightMenu extends JPanel {
         actualComponents = new ArrayList<>();
         battle = new Battle(playerTeam, opponentTeam);
 
-        playerBar = new CustomBar(0, battle.getPlayerPokemon().getMaxHp(), Color.decode("#6adaaa"), Color.decode("#dac26a"), Color.decode("#da6a6a"));
+        playerBar = new AnimatedBar(0, battle.getPlayerPokemon().getMaxHp(), Color.decode("#6adaaa"), Color.decode("#dac26a"), Color.decode("#da6a6a"));
         playerBar.setBounds(650, 298, 162, 12);
         playerBar.setValue(battle.getPlayerPokemon().getHp());
 
-        opponentBar = new CustomBar(0, battle.getOpponentPokemon().getMaxHp(), Color.decode("#6adaaa"), Color.decode("#dac26a"), Color.decode("#da6a6a"));
+        opponentBar = new AnimatedBar(0, battle.getOpponentPokemon().getMaxHp(), Color.decode("#6adaaa"), Color.decode("#dac26a"), Color.decode("#da6a6a"));
         opponentBar.setBounds(245, 109, 162, 12);
         opponentBar.setValue(battle.getOpponentPokemon().getHp());
 

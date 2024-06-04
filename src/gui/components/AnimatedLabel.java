@@ -8,14 +8,25 @@ import java.awt.event.ActionListener;
 public class AnimatedLabel extends JLabel {
     private Timer timer;
 
+    /**
+     * Istanzia una nuova AnimatedLabel vuota
+     */
     public AnimatedLabel() {
         super();
     }
 
+    /**
+     * Istanzia una nuova AnimatedLabel con un'immagine
+     */
     public AnimatedLabel(ImageIcon icon) {
         super(icon);
     }
 
+    /**
+     * Fai apparire un testo nell'AnimatedLabel
+     *
+     * @param text Testo da far apparire
+     */
     public void appearText(String text) {
         if (timer != null)
             timer.stop();
@@ -40,6 +51,11 @@ public class AnimatedLabel extends JLabel {
         timer.start();
     }
 
+    /**
+     * Fai apparire un testo nell'AnimatedLabel e dopodichè esegui del codice
+     * @param text Testo da far apparire
+     * @param runnable Runnable da eseguire
+     */
     public void appearTextAndExecute(String text, Runnable runnable) {
         if (timer != null)
             timer.stop();
@@ -65,6 +81,14 @@ public class AnimatedLabel extends JLabel {
         timer.start();
     }
 
+    /**
+     * Sposta l'AnimatedLabel in una nuova posizione
+     * @param x X della nuova posizione
+     * @param y Y della nuova posizione
+     * @param frames Numero di microspostamenti da eseguire
+     * @param delay Tempo tra ogni microspostamento (in millisecondi)
+     * @param runnable Runnable da eseguire al termine dello spostamento
+     */
     public void setLocation(int x, int y, int frames, int delay, Runnable runnable) {
         Point oldPoint = new Point(getLocation().x, getLocation().y);
         Point animFrame = new Point((x - oldPoint.x) / frames, (y - oldPoint.y) / frames);

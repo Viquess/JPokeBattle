@@ -6,18 +6,27 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CustomBar extends JProgressBar {
+public class AnimatedBar extends JProgressBar {
     private Timer timer;
 
-    public CustomBar(int min, int max, Color start, Color mid, Color end) {
+    /**
+     * Istanzia una nuova AnimatedBar
+     *
+     * @param min   Valore minimo
+     * @param max   Valore massimo
+     * @param start Colore quando la AnimatedBar è al 100%
+     * @param mid   Colore quando la AnimatedBar è al 50$
+     * @param end   Colore quando la AnimatedBar è allo 0%
+     */
+    public AnimatedBar(int min, int max, Color start, Color mid, Color end) {
         super(min, max);
 
         setBorderPainted(false);
-        setUI(new CustomBarUI());
+        setUI(new AnimatedBarUI());
 
         addChangeListener(e -> {
             int r, g, b;
-            float ratio = getRatio();
+            float ratio = (float) getValue() / getMaximum();
 
             if (ratio > 0.5) {
                 r = (int) (mid.getRed() + (start.getRed() - mid.getRed()) * (ratio - 0.5) * 2);
@@ -33,12 +42,21 @@ public class CustomBar extends JProgressBar {
         });
     }
 
+    /**
+     * Resetta la AnimatedBar
+     * @param value Valore da impostare
+     * @param max Valore massimo da impostare
+     */
     public void resetBar(int value, int max) {
         setMaximum(max);
         setValue(max);
         decrement(max - value);
     }
 
+    /**
+     * Decrementa la AnimatedBar di una certa quantità
+     * @param quantity Quantità da decrementare
+     */
     public void decrement(int quantity) {
         if (quantity == 0)
             return;
@@ -65,34 +83,10 @@ public class CustomBar extends JProgressBar {
         timer.start();
     }
 
-    public void increment(int quantity) {
-        if (quantity == 0)
-            return;
-
-        timer = new Timer(350 / quantity, new ActionListener() {
-            int count = quantity;
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (count == 0) {
-                    timer.stop();
-                    timer = null;
-                    return;
-                }
-
-                count--;
-                setValue(getValue() + 1);
-            }
-        });
-
-        timer.start();
-    }
-
-    public float getRatio() {
-        return (float) getValue() / getMaximum();
-    }
-
-    private static class CustomBarUI extends BasicProgressBarUI {
+    /**
+     * UI della AnimatedBar
+     */
+    private static class AnimatedBarUI extends BasicProgressBarUI {
 
         @Override
         protected void paintDeterminate(Graphics g, JComponent c) {
