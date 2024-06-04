@@ -18,7 +18,7 @@ public class Lapras extends PokemonImpl {
     }
 
     @Override
-    public int getHp() {
+    public int getMaxHp() {
         return 130;
     }
 

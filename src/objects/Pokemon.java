@@ -19,10 +19,22 @@ public interface Pokemon {
     Types[] getTypes();
 
     /**
+     * Determina la vita massima del Pokemon
+     *
+     * @return Vita massima del Pokemon
+     */
+    int getMaxHp();
+
+    /**
      * Determina la vita del Pokemon
      * @return Vita del Pokemon
      */
     int getHp();
+
+    /**
+     * Imposta la vita del Pokemon
+     */
+    void setHp(int hp);
 
     /**
      * Determina i punti attacco del Pokemon
@@ -67,16 +79,29 @@ public interface Pokemon {
     List<Move> getMoves();
 
     /**
+     * Aggiungi una mossa al Pokemon
+     *
+     * @param move Mossa da aggiungere
+     */
+    void addMove(Move move);
+
+    /**
+     * Controlla se il Pokemon ha una determinata mossa
+     *
+     * @param type MoveType della mossa
+     * @return True se ha la mossa, altrimenti false
+     */
+    boolean hasMove(MoveTypes type);
+
+    /**
+     * Riproduci il grido del Pokemon
+     */
+    void cry();
+
+    /**
      * Registra un Pokemon nella lista dei Pokemon
      */
     void register();
-
-    /**
-     * Ottieni una nuova istanza del Pokemon usando le mosse indicate
-     * @param moves Mosse del pokemon
-     * @return Nuova istanza del Pokemon
-     */
-    Pokemon newInstance(List<Move> moves);
 
     /**
      * Ottieni una nuova istanza del Pokemon

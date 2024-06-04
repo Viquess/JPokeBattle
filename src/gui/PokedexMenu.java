@@ -21,14 +21,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class PokedexMenu extends JPanel {
 
-    private Team team;
-    private JLabel infoTitle;
-    private JLabel infoStats;
-    private JLabel infoTypes;
-    private JButton addButton;
-    private JButton fightButton;
     private PokemonImpl selected;
-    private List<JComponent> teamComponents = new ArrayList<>();
+    private JLabel infoTitle, infoStats, infoTypes;
+
+    private final Team team;
+    private final JButton addButton, fightButton;
+    private final List<JComponent> teamComponents = new ArrayList<>();
 
     /**
      * Inizializza il menù del Pokedex
@@ -68,7 +66,7 @@ public class PokedexMenu extends JPanel {
                 infoTitle.setVerticalTextPosition(JLabel.BOTTOM);
                 infoTitle.setForeground(Color.WHITE);
 
-                infoStats = new JLabel("<html><br>PS >> %s<br>Att >> %s<br>Dif >> %s<br>A.Sp >> %s<br>D.Sp >> %s<br>Vel >> %s</html>".formatted(v.getHp(), v.getAttack(), v.getDefense(), v.getSpAtk(), v.getSpDef(), v.getSpeed()));
+                infoStats = new JLabel("<html><br>PS >> %s<br>Att >> %s<br>Dif >> %s<br>A.Sp >> %s<br>D.Sp >> %s<br>Vel >> %s</html>".formatted(v.getMaxHp(), v.getAttack(), v.getDefense(), v.getSpAtk(), v.getSpDef(), v.getSpeed()));
                 infoStats.setFont(Utils.getFont("files\\PokemonFont.ttf", 10.5f));
                 infoStats.setBounds(272, 220, 125, 90);
                 infoStats.setVerticalAlignment(SwingConstants.TOP);
@@ -103,7 +101,7 @@ public class PokedexMenu extends JPanel {
                 infoTitle.setIcon(v.getFrontSprite());
                 infoTitle.setText("<html><b>%s</b></html>".formatted(v.getDisplayName()));
 
-                infoStats.setText("<html><br>PS >> %s<br>Att >> %s<br>Dif >> %s<br>A.Sp >> %s<br>D.Sp >> %s<br>Vel >> %s</html>".formatted(v.getHp(), v.getAttack(), v.getDefense(), v.getSpAtk(), v.getSpDef(), v.getSpeed()));
+                infoStats.setText("<html><br>PS >> %s<br>Att >> %s<br>Dif >> %s<br>A.Sp >> %s<br>D.Sp >> %s<br>Vel >> %s</html>".formatted(v.getMaxHp(), v.getAttack(), v.getDefense(), v.getSpAtk(), v.getSpDef(), v.getSpeed()));
 
                 infoTypes.setBounds(332, 320, 0, 25);
                 infoTypes.removeAll();

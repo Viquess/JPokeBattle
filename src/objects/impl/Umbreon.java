@@ -18,7 +18,7 @@ public class Umbreon extends PokemonImpl {
     }
 
     @Override
-    public int getHp() {
+    public int getMaxHp() {
         return 95;
     }
 

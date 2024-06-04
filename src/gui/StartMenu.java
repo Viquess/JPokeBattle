@@ -9,8 +9,6 @@ import java.awt.*;
 import java.io.IOException;
 
 public class StartMenu extends JPanel {
-    private JLabel title;
-    private JButton startButton;
 
     /**
      * Inizializza il menù di start
@@ -21,10 +19,10 @@ public class StartMenu extends JPanel {
 
         Utils.playMusic("files\\start\\sound.wav");
 
-        title = new JLabel(new ImageIcon(Utils.getURL("files\\start\\JPokeBattle.png")));
+        JLabel title = new JLabel(new ImageIcon(Utils.getURL("files\\start\\JPokeBattle.png")));
         title.setBounds(0,-10, 960, 327);
 
-        startButton = new CustomButton(new ImageIcon(Utils.getURL("files\\start\\start.png")), 430,400, 130,46);
+        JButton startButton = new CustomButton(new ImageIcon(Utils.getURL("files\\start\\start.png")), 430, 400, 130, 46);
         startButton.setPressedIcon(new ImageIcon(Utils.getURL("files\\start\\startPressed.png")));
         startButton.addActionListener(e -> {
             setVisible(false);

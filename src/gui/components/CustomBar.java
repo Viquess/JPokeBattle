@@ -7,20 +7,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CustomBar extends JProgressBar {
-    private boolean isDecrementing = false;
-    private int min, max;
+    private Timer timer;
 
     public CustomBar(int min, int max, Color start, Color mid, Color end) {
         super(min, max);
-        this.min = min;
-        this.max = max;
 
         setBorderPainted(false);
         setUI(new CustomBarUI());
 
         addChangeListener(e -> {
             int r, g, b;
-            float ratio = (float) getValue() / this.max;
+            float ratio = getRatio();
 
             if (ratio > 0.5) {
                 r = (int) (mid.getRed() + (start.getRed() - mid.getRed()) * (ratio - 0.5) * 2);
@@ -36,32 +33,27 @@ public class CustomBar extends JProgressBar {
         });
     }
 
-
-    @Override
-    public void setMinimum(int n) {
-        super.setMinimum(n);
-        min = n;
-    }
-
-    @Override
-    public void setMaximum(int n) {
-        super.setMaximum(n);
-        max = n;
+    public void resetBar(int value, int max) {
+        setMaximum(max);
+        setValue(max);
+        decrement(max - value);
     }
 
     public void decrement(int quantity) {
-        if (isDecrementing)
+        if (quantity == 0)
             return;
 
-        isDecrementing = true;
-        Timer timer = new Timer(16, new ActionListener() {
+        if (timer != null)
+            timer.stop();
+
+        timer = new Timer(350 / quantity, new ActionListener() {
             int count = quantity;
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (count == 0) {
-                    ((Timer) e.getSource()).stop();
-                    isDecrementing = false;
+                    timer.stop();
+                    timer = null;
                     return;
                 }
 
@@ -71,6 +63,33 @@ public class CustomBar extends JProgressBar {
         });
 
         timer.start();
+    }
+
+    public void increment(int quantity) {
+        if (quantity == 0)
+            return;
+
+        timer = new Timer(350 / quantity, new ActionListener() {
+            int count = quantity;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (count == 0) {
+                    timer.stop();
+                    timer = null;
+                    return;
+                }
+
+                count--;
+                setValue(getValue() + 1);
+            }
+        });
+
+        timer.start();
+    }
+
+    public float getRatio() {
+        return (float) getValue() / getMaximum();
     }
 
     private static class CustomBarUI extends BasicProgressBarUI {

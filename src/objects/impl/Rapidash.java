@@ -18,7 +18,7 @@ public class Rapidash extends PokemonImpl {
     }
 
     @Override
-    public int getHp() {
+    public int getMaxHp() {
         return 65;
     }
 

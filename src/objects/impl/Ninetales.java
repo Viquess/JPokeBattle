@@ -18,7 +18,7 @@ public class Ninetales extends PokemonImpl {
     }
 
     @Override
-    public int getHp() {
+    public int getMaxHp() {
         return 73;
     }
 

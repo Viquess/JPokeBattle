@@ -18,7 +18,7 @@ public class Arbok extends PokemonImpl {
     }
 
     @Override
-    public int getHp() {
+    public int getMaxHp() {
         return 60;
     }
 

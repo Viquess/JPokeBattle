@@ -18,7 +18,7 @@ public class Bulbasaur extends PokemonImpl {
     }
 
     @Override
-    public int getHp() {
+    public int getMaxHp() {
         return 45;
     }
 

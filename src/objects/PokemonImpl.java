@@ -12,6 +12,7 @@ import java.util.List;
 public abstract class PokemonImpl implements Pokemon {
     private final String id = getClass().getSimpleName().toLowerCase();
     protected List<Move> moves = new ArrayList<>();
+    protected int hp;
 
     public String getId() {
         return id;
@@ -32,7 +33,7 @@ public abstract class PokemonImpl implements Pokemon {
     public abstract Types[] getTypes();
 
     @Override
-    public abstract int getHp();
+    public abstract int getMaxHp();
 
     @Override
     public abstract int getAttack();
@@ -53,24 +54,38 @@ public abstract class PokemonImpl implements Pokemon {
     public abstract List<MoveTypes> getLearnableMoves();
 
     @Override
+    public int getHp() {
+        return hp;
+    }
+
+    @Override
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    @Override
     public List<Move> getMoves() {
         return moves;
     }
 
-    public void setMoves(List<Move> moves) {
-        if (moves.size() > 4)
-            moves.subList(0, 3);
-
-        this.moves = moves;
+    @Override
+    public void addMove(Move move) {
+        if (moves.size() < 4)
+            moves.add(move);
     }
 
-    public boolean addMove(Move move) {
-        if (moves.size() < 4) {
-            moves.add(move);
-            return true;
-        }
+    @Override
+    public boolean hasMove(MoveTypes type) {
+        for (Move move : moves)
+            if (move.getMoveType() == type)
+                return true;
 
         return false;
+    }
+
+    @Override
+    public void cry() {
+        Utils.playSound("files\\sounds\\cries\\%s.wav".formatted(id));
     }
 
     @Override
@@ -79,23 +94,11 @@ public abstract class PokemonImpl implements Pokemon {
     }
 
     @Override
-    public PokemonImpl newInstance(List<Move> moves) {
-        try {
-            PokemonImpl classe = getClass().getDeclaredConstructor().newInstance();
-            moves.removeIf(move -> !classe.getLearnableMoves().contains(move.getMoveType()) || moves.indexOf(move) > 3);
-
-            classe.setMoves(moves);
-            return classe;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Override
     public PokemonImpl newInstance() {
         try {
             PokemonImpl classe = getClass().getDeclaredConstructor().newInstance();
-            List<Move> moves = new ArrayList<>();
+            classe.hp = getMaxHp();
+
             for (int i = 0; i < Math.min(4, classe.getLearnableMoves().size()); i++) {
                 Move move = new Move(Utils.randOf(classe.getLearnableMoves()));
                 while (classe.hasMove(move.getMoveType()))
@@ -108,13 +111,5 @@ public abstract class PokemonImpl implements Pokemon {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public boolean hasMove(MoveTypes type) {
-        for (Move move : moves)
-            if (move.getMoveType() == type)
-                return true;
-
-        return false;
     }
 }
