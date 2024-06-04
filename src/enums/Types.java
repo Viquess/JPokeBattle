@@ -32,6 +32,12 @@ public enum Types {
         this.noEffect = noEffect;
     }
 
+    /**
+     * Ottieni la tag relativa al tipo
+     *
+     * @param width Larghezza della tag
+     * @return Tag
+     */
     public ImageIcon getTag(int width) {
         return Utils.resize(new ImageIcon(Utils.getURL("files\\types\\%s.png".formatted(name().toLowerCase()))), width, (width * 77) / 176);
     }

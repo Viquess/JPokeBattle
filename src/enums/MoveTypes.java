@@ -145,14 +145,27 @@ public enum MoveTypes {
         this.maxPP = maxPP;
     }
 
+    /**
+     * Ottieni il tipo della mossa
+     *
+     * @return Tipo della mossa
+     */
     public Types getType() {
         return type;
     }
 
+    /**
+     * Ottieni il massimo di PP della mossa
+     * @return Massimo di PP della mossa
+     */
     public int getMaxPP() {
         return maxPP;
     }
 
+    /**
+     * Ottieni il DisplayName della mossa
+     * @return DisplayName della mossa
+     */
     public String getDisplayName() {
         return name().replace("_", " ");
     }
