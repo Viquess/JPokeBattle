@@ -159,6 +159,12 @@ public class FightMenu extends JPanel {
             clearComponents();
 
             Utils.playSound("files\\sounds\\swish.wav");
+            playerSprite.setLocation(-200, 190, 8, 1, null);
+            playerHP.setText("");
+            playerLv.setText("");
+            playerName.setText("");
+            playerBar.setValue(0);
+
             message.appearTextAndExecute("Hai abbandonato lo scontro!", () -> {
                 setVisible(false);
                 Application.getInstance().setContentPane(new StartMenu());
