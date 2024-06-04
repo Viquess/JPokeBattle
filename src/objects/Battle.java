@@ -15,7 +15,7 @@ public class Battle {
     /**
      * Inizializza una nuova battaglia
      *
-     * @param playerTeam Team del giocatore
+     * @param playerTeam   Team del giocatore
      * @param opponentTeam Team avversario
      */
     public Battle(Team playerTeam, Team opponentTeam) {
@@ -27,6 +27,7 @@ public class Battle {
 
     /**
      * Ottieni il Team del player
+     *
      * @return Team del player
      */
     public Team getPlayerTeam() {
@@ -35,6 +36,7 @@ public class Battle {
 
     /**
      * Ottieni il Team dell'avversario
+     *
      * @return Team dell'avversario
      */
     public Team getOpponentTeam() {
@@ -43,6 +45,7 @@ public class Battle {
 
     /**
      * Ottieni il Pokemon attualmente utilizzato dal Player
+     *
      * @return Pokemon attualmente utilizzato dal player
      */
     public PokemonImpl getPlayerPokemon() {
@@ -51,6 +54,7 @@ public class Battle {
 
     /**
      * Imposta il Pokemon attualmente utilizzato dal Player
+     *
      * @param playerPokemon Pokemon da impostare
      * @return True se il pokemon viene impostato, false altrimenti
      */
@@ -64,6 +68,7 @@ public class Battle {
 
     /**
      * Ottieni il Pokemon attualmente utilizzato dall'avversario
+     *
      * @return Pokemon attualmente utilizzato dall'avversario
      */
     public PokemonImpl getOpponentPokemon() {
@@ -72,6 +77,7 @@ public class Battle {
 
     /**
      * Imposta il Pokemon attualmente utilizzato dall'avversario
+     *
      * @param opponentPokemon Pokemon da impostare
      * @return True se il pokemon viene impostato, false altrimenti
      */

@@ -32,6 +32,7 @@ public class Application extends JFrame {
 
     /**
      * Ottieni l'istanza attiva dell'applicazione
+     *
      * @return istanza dell'applicazione
      */
     public static Application getInstance() {

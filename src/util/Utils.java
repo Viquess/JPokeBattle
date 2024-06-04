@@ -33,6 +33,7 @@ public class Utils {
         for (FontUIResource font : fonts)
             ge.registerFont(font);
     }
+
     /**
      * Imposta il font base dell'UI
      *
@@ -101,6 +102,7 @@ public class Utils {
 
     /**
      * Ottieni un numero casuale in un intervallo
+     *
      * @param min Estremo inferiore dell'intervallo
      * @param max Estremo superiore dell'intervallo
      * @return Numero casuale
@@ -111,11 +113,12 @@ public class Utils {
 
     /**
      * Ottieni un elemento casuale da una collezione
+     *
      * @param collection Collezione di oggetti
+     * @param <T>        Tipo degli elementi nella collezione
      * @return Elemento casuale della collezione
-     * @param <T> Tipo degli elementi nella collezione
      */
     public static <T> T randOf(Collection<T> collection) {
-        return new ArrayList<>(collection).get(randNumber(0, collection.size()-1));
+        return new ArrayList<>(collection).get(randNumber(0, collection.size() - 1));
     }
 }

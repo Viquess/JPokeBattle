@@ -12,7 +12,7 @@ public enum MoveTypes {
     POISON_STING(Types.POISON, MoveCategory.PHYSICAL, 15, 100, 35),
     THUNDER_FANG(Types.ELECTRIC, MoveCategory.PHYSICAL, 65, 95, 15),
     WRAP(Types.NORMAL, MoveCategory.PHYSICAL, 15, 90, 20),
-    GLARE(Types.NORMAL, MoveCategory.STATUS, 0,100, 30),
+    GLARE(Types.NORMAL, MoveCategory.STATUS, 0, 100, 30),
     SCREECH(Types.NORMAL, MoveCategory.STATUS, 0, 100, 30),
     ACID(Types.POISON, MoveCategory.SPECIAL, 40, 100, 30),
     SPIT_UP(Types.NORMAL, MoveCategory.SPECIAL, 0, 100, 10),

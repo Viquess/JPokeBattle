@@ -12,6 +12,7 @@ public class Datas {
 
     /**
      * Ottieni la lista di pokemon registrati
+     *
      * @return Lista dei Pokemon registrati
      */
     public static HashMap<String, PokemonImpl> getPokemons() {

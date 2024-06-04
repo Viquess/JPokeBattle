@@ -8,6 +8,7 @@ public class Move {
 
     /**
      * Istanzia una nuova mossa
+     *
      * @param moveType MoveType della mossa
      */
     public Move(MoveTypes moveType) {
@@ -17,6 +18,7 @@ public class Move {
 
     /**
      * Ottieni il tipo di mossa
+     *
      * @return Oggetto MoveType relativo alla mossa
      */
     public MoveTypes getMoveType() {
@@ -25,6 +27,7 @@ public class Move {
 
     /**
      * Ottieni i PP della mossa
+     *
      * @return PP della mossa
      */
     public int getPp() {

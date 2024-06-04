@@ -113,7 +113,8 @@ public class FightMenu extends JPanel {
                 button.setHorizontalTextPosition(SwingConstants.CENTER);
                 button.setForeground(Color.WHITE);
 
-                i: if (i < battle.getPlayerTeam().size()) {
+                i:
+                if (i < battle.getPlayerTeam().size()) {
                     PokemonImpl pokemon = battle.getPlayerTeam().getPokemons().get(i);
                     button.setText("%s (%s/%s)".formatted(pokemon.getDisplayName(), pokemon.getHp(), pokemon.getMaxHp()));
 
@@ -131,7 +132,7 @@ public class FightMenu extends JPanel {
                         Rectangle bounds = container.getBounds();
                         ImageIcon tagImg = type.getTag(38);
 
-                        container.setBounds(bounds.x, bounds.y - tagImg.getIconHeight()/2, bounds.width, bounds.height + tagImg.getIconHeight());
+                        container.setBounds(bounds.x, bounds.y - tagImg.getIconHeight() / 2, bounds.width, bounds.height + tagImg.getIconHeight());
                         container.add(new JLabel(tagImg));
                     }
 

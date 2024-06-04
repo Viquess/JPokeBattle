@@ -20,7 +20,7 @@ public class StartMenu extends JPanel {
         Utils.playMusic("files\\start\\sound.wav");
 
         JLabel title = new JLabel(new ImageIcon(Utils.getURL("files\\start\\JPokeBattle.png")));
-        title.setBounds(0,-10, 960, 327);
+        title.setBounds(0, -10, 960, 327);
 
         JButton startButton = new CustomButton(new ImageIcon(Utils.getURL("files\\start\\start.png")), 430, 400, 130, 46);
         startButton.setPressedIcon(new ImageIcon(Utils.getURL("files\\start\\startPressed.png")));
