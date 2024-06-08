@@ -40,12 +40,12 @@ public interface Pokemon {
      *
      * @return Vita del Pokemon
      */
-    int getHp();
+    double getHp();
 
     /**
      * Imposta la vita del Pokemon
      */
-    void setHp(int hp);
+    void setHp(double hp);
 
     /**
      * Determina i punti attacco del Pokemon
@@ -129,6 +129,13 @@ public interface Pokemon {
      * Riproduci il grido del Pokemon
      */
     void cry();
+
+    /**
+     * Verifica se un Pokemon è utilizzabile
+     *
+     * @return True se è utilizzabile, false altrimenti
+     */
+    boolean isAvailable();
 
     /**
      * Registra un Pokemon nella lista dei Pokemon

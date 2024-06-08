@@ -49,7 +49,7 @@ public class PokedexMenu extends JPanel {
             setVisible(false);
             Utils.playSound("files\\sounds\\pling.wav");
             Utils.playMusic("files\\battle\\sound.wav");
-            Application.getInstance().setContentPane(new FightMenu(team, Team.getRandom(1)));
+            Application.getInstance().setContentPane(new FightMenu(team, Team.getRandom(2)));
         });
         add(fightButton);
 
@@ -156,7 +156,7 @@ public class PokedexMenu extends JPanel {
 
     @Override
     public void paintComponent(Graphics g) {
-        super.paintComponents(g);
+        super.paintComponent(g);
 
         try {
             g.drawImage(ImageIO.read(Utils.getURL("files\\pokedex\\background.png")), 0, 0, null);

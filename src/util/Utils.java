@@ -1,5 +1,10 @@
 package util;
 
+import enums.MoveCategory;
+import enums.MoveTypes;
+import enums.Types;
+import objects.PokemonImpl;
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -27,7 +32,6 @@ public class Utils {
         return Utils.class.getResource("..\\".concat(path));
     }
 
-
     /**
      * Registra dei nuovi font
      *
@@ -49,11 +53,15 @@ public class Utils {
             if (UIManager.get(k) instanceof FontUIResource)
                 UIManager.put(k, font);
         });
+
+        UIManager.put("TextField.font", Utils.getFont("files\\BattleFont.ttf", 24f));
+        UIManager.put("Button.font", Utils.getFont("files\\BattleFont.ttf", 16f));
     }
 
     /**
      * Ottieni un Font delle dimensioni indicate
-     * @param path Percorso del Font
+     *
+     * @param path      Percorso del Font
      * @param dimension Dimensioni del Font
      * @return Font
      */
@@ -69,8 +77,9 @@ public class Utils {
 
     /**
      * Ridimensiona un'immagine
-     * @param icon Immagine da ridimensionare
-     * @param width Nuova larghezza
+     *
+     * @param icon   Immagine da ridimensionare
+     * @param width  Nuova larghezza
      * @param height Nuova altezza
      * @return Immagine ridimensionata
      */
@@ -123,7 +132,18 @@ public class Utils {
      * @param max Estremo superiore dell'intervallo
      * @return Numero casuale
      */
-    public static int randNumber(int min, int max) {
+    public static double randDouble(double min, double max) {
+        return min + Math.random() * (max - min);
+    }
+
+    /**
+     * Ottieni un numero intero casuale in un intervallo
+     *
+     * @param min Estremo inferiore dell'intervallo
+     * @param max Estremo superiore dell'intervallo
+     * @return Numero intero casuale
+     */
+    public static int randInt(int min, int max) {
         return (int) ((Math.random() * ((max - min) + 1)) + min);
     }
 
@@ -135,6 +155,35 @@ public class Utils {
      * @return Elemento casuale della collezione
      */
     public static <T> T randOf(Collection<T> collection) {
-        return new ArrayList<>(collection).get(randNumber(0, collection.size() - 1));
+        return new ArrayList<>(collection).get(randInt(0, collection.size() - 1));
+    }
+
+    public static double getTypeModifier(PokemonImpl to, MoveTypes moveType) {
+        double typeModifier = 1;
+        for (Types type : to.getTypes()) {
+            if (moveType.getType().isSuperEffectiveOn(type))
+                typeModifier *= 2;
+            else if (moveType.getType().isNotVeryEffectiveOn(type))
+                typeModifier *= 0.5;
+            else if (moveType.getType().hasNoEffectOn(type)) {
+                typeModifier *= 0;
+                break;
+            }
+        }
+
+        return typeModifier;
+    }
+
+    public static double calculateDamage(PokemonImpl from, PokemonImpl to, MoveTypes moveType) {
+        double stab = 1.0;
+        for (Types type : from.getTypes())
+            if (type == moveType.getType()) {
+                stab = 1.5;
+                break;
+            }
+
+        double typeModifier = getTypeModifier(to, moveType);
+        boolean isSpecial = moveType.getCategory() == MoveCategory.SPECIAL;
+        return ((((((double) 2 / 5) + 2) * moveType.getPower() * (isSpecial ? from.getSpAtk() : from.getAttack()) / (isSpecial ? to.getSpDef() : to.getDefense())) / 50) + 2) * Utils.randDouble(0.85, 1.00) * stab * typeModifier;
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 
 public abstract class PokemonImpl implements Pokemon {
     protected List<Move> moves = new ArrayList<>();
-    protected int hp;
+    protected double hp;
 
     @Override
     public abstract String getDisplayName();
@@ -46,12 +46,12 @@ public abstract class PokemonImpl implements Pokemon {
     }
 
     @Override
-    public int getHp() {
+    public double getHp() {
         return hp;
     }
 
     @Override
-    public void setHp(int hp) {
+    public void setHp(double hp) {
         this.hp = hp;
     }
 
@@ -91,6 +91,21 @@ public abstract class PokemonImpl implements Pokemon {
     }
 
     @Override
+    public boolean isAvailable() {
+        if ((int) getHp() == 0)
+            return false;
+
+        boolean hasMove = false;
+        for (Move move : getMoves())
+            if (move.getPP() > 0) {
+                hasMove = true;
+                break;
+            }
+
+        return hasMove;
+    }
+
+    @Override
     public void register() {
         Datas.getPokemons().put(getId(), this);
     }
@@ -103,7 +118,7 @@ public abstract class PokemonImpl implements Pokemon {
 
             for (int i = 0; i < Math.min(4, classe.getLearnableMoves().size()); i++) {
                 Move move = new Move(Utils.randOf(classe.getLearnableMoves()));
-                while (classe.hasMove(move.getMoveType()))
+                while (classe.hasMove(move.getMoveType()) || move.getMoveType().getAccuracy() == 0)
                     move = new Move(Utils.randOf(classe.getLearnableMoves()));
 
                 classe.addMove(move);

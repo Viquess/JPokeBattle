@@ -30,7 +30,16 @@ public class Move {
      *
      * @return PP della mossa
      */
-    public int getPp() {
+    public int getPP() {
         return pp;
+    }
+
+    /**
+     * Imposta i PP della mossa
+     *
+     * @param pp PP da impostare
+     */
+    public void setPP(int pp) {
+        this.pp = pp;
     }
 }

@@ -99,4 +99,31 @@ public class Team {
     public int size() {
         return pokemons.size();
     }
+
+    /**
+     * Ottieni il numero di Pokemon morti nel Team
+     *
+     * @return Quantità di Pokemon morti
+     */
+    public int getDeadPokemons() {
+        int deaths = 0;
+        for (PokemonImpl pokemon : pokemons)
+            if (pokemon.getHp() == 0)
+                deaths++;
+
+        return deaths;
+    }
+
+    /**
+     * Verifica se ci sono Pokemon utilizzabili nel Team
+     *
+     * @return True se ci sono, false altrimenti
+     */
+    public boolean hasPokemonAvailable() {
+        for (PokemonImpl pokemon : pokemons) {
+            if (pokemon.isAvailable())
+                return true;
+        }
+        return false;
+    }
 }

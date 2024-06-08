@@ -33,6 +33,48 @@ public enum Types {
     }
 
     /**
+     * Verifica se il tipo è superefficace su un altro tipo
+     *
+     * @param type Tipo su cui verificare
+     * @return True se è superefficace, false altrimenti
+     */
+    public boolean isSuperEffectiveOn(Types type) {
+        for (String s : superEffective)
+            if (s.equalsIgnoreCase(type.name()))
+                return true;
+
+        return false;
+    }
+
+    /**
+     * Verifica se il tipo non è efficace su un altro tipo
+     *
+     * @param type Tipo su cui verificare
+     * @return True se non è efficace, false altrimenti
+     */
+    public boolean isNotVeryEffectiveOn(Types type) {
+        for (String s : notVeryEffective)
+            if (s.equalsIgnoreCase(type.name()))
+                return true;
+
+        return false;
+    }
+
+    /**
+     * Verifica se il tipo non ha effetto su un altro tipo
+     *
+     * @param type Tipo su cui verificare
+     * @return True se non ha effetto, false altrimenti
+     */
+    public boolean hasNoEffectOn(Types type) {
+        for (String s : noEffect)
+            if (s.equalsIgnoreCase(type.name()))
+                return true;
+
+        return false;
+    }
+
+    /**
      * Ottieni la tag relativa al tipo
      *
      * @param width Larghezza della tag

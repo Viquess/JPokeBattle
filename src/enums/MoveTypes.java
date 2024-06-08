@@ -155,6 +155,33 @@ public enum MoveTypes {
     }
 
     /**
+     * Ottieni la categoria della mossa
+     *
+     * @return Categoria della mossa
+     */
+    public MoveCategory getCategory() {
+        return category;
+    }
+
+    /**
+     * Ottieni la potenza della mossa
+     *
+     * @return Potenza della mossa
+     */
+    public int getPower() {
+        return power;
+    }
+
+    /**
+     * Ottieni l'accuratezza della mossa
+     *
+     * @return Accuratezza della mossa
+     */
+    public int getAccuracy() {
+        return accuracy;
+    }
+
+    /**
      * Ottieni il massimo di PP della mossa
      * @return Massimo di PP della mossa
      */
