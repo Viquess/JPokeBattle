@@ -1,5 +1,6 @@
 package objects;
 
+import enums.MoveCategory;
 import enums.MoveTypes;
 import enums.Types;
 import util.Datas;
@@ -118,7 +119,7 @@ public abstract class PokemonImpl implements Pokemon {
 
             for (int i = 0; i < Math.min(4, classe.getLearnableMoves().size()); i++) {
                 Move move = new Move(Utils.randOf(classe.getLearnableMoves()));
-                while (classe.hasMove(move.getMoveType()) || move.getMoveType().getAccuracy() == 0)
+                while (classe.hasMove(move.getMoveType()) || move.getMoveType().getCategory() == MoveCategory.STATUS || move.getMoveType().getAccuracy() == 0)
                     move = new Move(Utils.randOf(classe.getLearnableMoves()));
 
                 classe.addMove(move);
