@@ -24,7 +24,7 @@ public enum Type {
     STEEL(new String[]{"ICE", "ROCK", "FAIRY"}, new String[]{"FIRE", "WATER", "ELECTRIC", "STEEL"}, new String[]{}),
     FAIRY(new String[]{"FIGHTING", "DRAGON", "DARK"}, new String[]{"FIRE", "POISON", "STEEL"}, new String[]{});
 
-    final String[] superEffective, notVeryEffective, noEffect;
+    private final String[] superEffective, notVeryEffective, noEffect;
 
     Type(String[] superEffective, String[] notVeryEffective, String[] noEffect) {
         this.superEffective = superEffective;

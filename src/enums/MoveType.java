@@ -133,9 +133,9 @@ public enum MoveType {
     MOONLIGHT(Type.FAIRY, MoveCategory.STATUS, 0, 0, 5),
     LAST_RESORT(Type.NORMAL, MoveCategory.PHYSICAL, 140, 100, 5);
 
-    final Type type;
-    final MoveCategory category;
-    final int power, accuracy, maxPP;
+    private final Type type;
+    private final MoveCategory category;
+    private final int power, accuracy, maxPP;
 
     MoveType(Type type, MoveCategory category, int power, int accuracy, int maxPP) {
         this.type = type;
