@@ -3,12 +3,10 @@ import objects.impl.*;
 import util.Utils;
 
 import javax.swing.plaf.FontUIResource;
-import java.awt.*;
-import java.io.IOException;
 
 public class JPokeBattle {
 
-    public static void main(String[] args) throws IOException, FontFormatException {
+    public static void main(String[] args) {
         registerPokemons();
 
         FontUIResource font = Utils.getFont("files\\PokemonFont.ttf", 12f);
