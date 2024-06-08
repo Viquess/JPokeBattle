@@ -1,7 +1,7 @@
 package objects.impl;
 
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 import objects.PokemonImpl;
 
 import java.util.List;
@@ -13,8 +13,8 @@ public class Raichu extends PokemonImpl {
     }
 
     @Override
-    public Types[] getTypes() {
-        return new Types[]{Types.ELECTRIC};
+    public Type[] getTypes() {
+        return new Type[]{Type.ELECTRIC};
     }
 
     @Override
@@ -48,10 +48,10 @@ public class Raichu extends PokemonImpl {
     }
 
     @Override
-    public List<MoveTypes> getLearnableMoves() {
-        return List.of(MoveTypes.THUNDER_SHOCK, MoveTypes.TAIL_WHIP, MoveTypes.QUICK_ATTACK, MoveTypes.DOUBLE_TEAM,
-                MoveTypes.ELECTRO_BALL, MoveTypes.THUNDER_WAVE, MoveTypes.FEINT, MoveTypes.SPARK,
-                MoveTypes.NUZZLE, MoveTypes.DISCHARGE, MoveTypes.SLAM, MoveTypes.THUNDERBOLT,
-                MoveTypes.AGILITY, MoveTypes.WILD_CHARGE, MoveTypes.LIGHT_SCREEN, MoveTypes.THUNDER);
+    public List<MoveType> getLearnableMoves() {
+        return List.of(MoveType.THUNDER_SHOCK, MoveType.TAIL_WHIP, MoveType.QUICK_ATTACK, MoveType.DOUBLE_TEAM,
+                MoveType.ELECTRO_BALL, MoveType.THUNDER_WAVE, MoveType.FEINT, MoveType.SPARK,
+                MoveType.NUZZLE, MoveType.DISCHARGE, MoveType.SLAM, MoveType.THUNDERBOLT,
+                MoveType.AGILITY, MoveType.WILD_CHARGE, MoveType.LIGHT_SCREEN, MoveType.THUNDER);
     }
 }

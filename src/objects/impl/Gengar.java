@@ -1,7 +1,7 @@
 package objects.impl;
 
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 import objects.PokemonImpl;
 
 import java.util.List;
@@ -13,8 +13,8 @@ public class Gengar extends PokemonImpl {
     }
 
     @Override
-    public Types[] getTypes() {
-        return new Types[]{Types.GHOST, Types.POISON};
+    public Type[] getTypes() {
+        return new Type[]{Type.GHOST, Type.POISON};
     }
 
     @Override
@@ -48,10 +48,10 @@ public class Gengar extends PokemonImpl {
     }
 
     @Override
-    public List<MoveTypes> getLearnableMoves() {
-        return List.of(MoveTypes.LICK, MoveTypes.HYPNOSIS, MoveTypes.SPITE, MoveTypes.MEAN_LOOK,
-                MoveTypes.CURSE, MoveTypes.NIGHT_SHADE, MoveTypes.CONFUSE_RAY, MoveTypes.SUCKER_PUNCH,
-                MoveTypes.PAYBACK, MoveTypes.SHADOW_BALL, MoveTypes.DARK_PULSE, MoveTypes.DESTINY_BOND,
-                MoveTypes.HEX, MoveTypes.DREAM_EATER);
+    public List<MoveType> getLearnableMoves() {
+        return List.of(MoveType.LICK, MoveType.HYPNOSIS, MoveType.SPITE, MoveType.MEAN_LOOK,
+                MoveType.CURSE, MoveType.NIGHT_SHADE, MoveType.CONFUSE_RAY, MoveType.SUCKER_PUNCH,
+                MoveType.PAYBACK, MoveType.SHADOW_BALL, MoveType.DARK_PULSE, MoveType.DESTINY_BOND,
+                MoveType.HEX, MoveType.DREAM_EATER);
     }
 }

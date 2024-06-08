@@ -1,7 +1,7 @@
 package gui;
 
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 import gui.components.AnimatedBar;
 import gui.components.AnimatedLabel;
 import gui.components.CustomButton;
@@ -97,7 +97,7 @@ public class FightMenu extends JPanel {
 
                 if (i < battle.getPlayerPokemon().getMoves().size()) {
                     Move move = battle.getPlayerPokemon().getMoves().get(i);
-                    MoveTypes moveType = move.getMoveType();
+                    MoveType moveType = move.getMoveType();
 
                     button.setText("%s (%s/%s)".formatted(moveType.getDisplayName(), move.getPP(), moveType.getMaxPP()));
                     button.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -193,7 +193,7 @@ public class FightMenu extends JPanel {
                     JLabel container = new JLabel();
                     container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
                     container.setBounds(55 + (226 * (i < 3 ? i : i - 3)), i < 3 ? 413 : 459, 38, 0);
-                    for (Types type : pokemon.getTypes()) {
+                    for (Type type : pokemon.getTypes()) {
                         Rectangle bounds = container.getBounds();
                         ImageIcon tagImg = type.getTag(38);
 

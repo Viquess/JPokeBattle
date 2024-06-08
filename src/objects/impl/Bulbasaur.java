@@ -1,7 +1,7 @@
 package objects.impl;
 
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 import objects.PokemonImpl;
 
 import java.util.List;
@@ -13,8 +13,8 @@ public class Bulbasaur extends PokemonImpl {
     }
 
     @Override
-    public Types[] getTypes() {
-        return new Types[]{Types.GRASS, Types.POISON};
+    public Type[] getTypes() {
+        return new Type[]{Type.GRASS, Type.POISON};
     }
 
     @Override
@@ -48,10 +48,10 @@ public class Bulbasaur extends PokemonImpl {
     }
 
     @Override
-    public List<MoveTypes> getLearnableMoves() {
-        return List.of(MoveTypes.GROWL, MoveTypes.TACKLE, MoveTypes.VINE_WHIP, MoveTypes.GROWTH,
-                MoveTypes.LEECH_SEED, MoveTypes.RAZOR_LEAF, MoveTypes.POISON_POWDER, MoveTypes.SLEEP_POWDER,
-                MoveTypes.TAKE_DOWN, MoveTypes.SWEET_SCENT, MoveTypes.SYNTHESIS, MoveTypes.WORRY_SEED,
-                MoveTypes.DOUBLE_EDGE, MoveTypes.SOLAR_BEAM);
+    public List<MoveType> getLearnableMoves() {
+        return List.of(MoveType.GROWL, MoveType.TACKLE, MoveType.VINE_WHIP, MoveType.GROWTH,
+                MoveType.LEECH_SEED, MoveType.RAZOR_LEAF, MoveType.POISON_POWDER, MoveType.SLEEP_POWDER,
+                MoveType.TAKE_DOWN, MoveType.SWEET_SCENT, MoveType.SYNTHESIS, MoveType.WORRY_SEED,
+                MoveType.DOUBLE_EDGE, MoveType.SOLAR_BEAM);
     }
 }

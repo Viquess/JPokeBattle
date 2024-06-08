@@ -1,7 +1,7 @@
 package objects.impl;
 
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 import objects.PokemonImpl;
 
 import java.util.List;
@@ -13,8 +13,8 @@ public class Ninetales extends PokemonImpl {
     }
 
     @Override
-    public Types[] getTypes() {
-        return new Types[]{Types.FIRE};
+    public Type[] getTypes() {
+        return new Type[]{Type.FIRE};
     }
 
     @Override
@@ -48,11 +48,11 @@ public class Ninetales extends PokemonImpl {
     }
 
     @Override
-    public List<MoveTypes> getLearnableMoves() {
-        return List.of(MoveTypes.EMBER, MoveTypes.TAIL_WHIP, MoveTypes.ROAR, MoveTypes.QUICK_ATTACK,
-                MoveTypes.CONFUSE_RAY, MoveTypes.SAFEGUARD, MoveTypes.INCINERATE, MoveTypes.FEINT_ATTACK,
-                MoveTypes.HEX, MoveTypes.FLAME_BURST, MoveTypes.WILL_O_WISP, MoveTypes.PAYBACK,
-                MoveTypes.FLAMETHROWER, MoveTypes.IMPRISON, MoveTypes.FIRE_BLAST, MoveTypes.GRUDGE,
-                MoveTypes.CAPTIVATE, MoveTypes.INFERNO);
+    public List<MoveType> getLearnableMoves() {
+        return List.of(MoveType.EMBER, MoveType.TAIL_WHIP, MoveType.ROAR, MoveType.QUICK_ATTACK,
+                MoveType.CONFUSE_RAY, MoveType.SAFEGUARD, MoveType.INCINERATE, MoveType.FEINT_ATTACK,
+                MoveType.HEX, MoveType.FLAME_BURST, MoveType.WILL_O_WISP, MoveType.PAYBACK,
+                MoveType.FLAMETHROWER, MoveType.IMPRISON, MoveType.FIRE_BLAST, MoveType.GRUDGE,
+                MoveType.CAPTIVATE, MoveType.INFERNO);
     }
 }

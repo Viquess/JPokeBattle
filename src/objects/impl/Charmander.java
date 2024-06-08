@@ -1,7 +1,7 @@
 package objects.impl;
 
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 import objects.PokemonImpl;
 
 import java.util.List;
@@ -13,8 +13,8 @@ public class Charmander extends PokemonImpl {
     }
 
     @Override
-    public Types[] getTypes() {
-        return new Types[]{Types.FIRE};
+    public Type[] getTypes() {
+        return new Type[]{Type.FIRE};
     }
 
     @Override
@@ -48,9 +48,9 @@ public class Charmander extends PokemonImpl {
     }
 
     @Override
-    public List<MoveTypes> getLearnableMoves() {
-        return List.of(MoveTypes.GROWL, MoveTypes.SCRATCH, MoveTypes.EMBER, MoveTypes.SMOKESCREEN,
-                MoveTypes.DRAGON_BREATH, MoveTypes.FIRE_FANG, MoveTypes.SLASH, MoveTypes.FLAMETHROWER,
-                MoveTypes.SCARY_FACE, MoveTypes.FIRE_SPIN, MoveTypes.INFERNO, MoveTypes.FLARE_BLITZ);
+    public List<MoveType> getLearnableMoves() {
+        return List.of(MoveType.GROWL, MoveType.SCRATCH, MoveType.EMBER, MoveType.SMOKESCREEN,
+                MoveType.DRAGON_BREATH, MoveType.FIRE_FANG, MoveType.SLASH, MoveType.FLAMETHROWER,
+                MoveType.SCARY_FACE, MoveType.FIRE_SPIN, MoveType.INFERNO, MoveType.FLARE_BLITZ);
     }
 }

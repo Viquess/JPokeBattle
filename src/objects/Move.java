@@ -1,9 +1,9 @@
 package objects;
 
-import enums.MoveTypes;
+import enums.MoveType;
 
 public class Move {
-    private MoveTypes moveType;
+    private MoveType moveType;
     private int pp;
 
     /**
@@ -11,7 +11,7 @@ public class Move {
      *
      * @param moveType MoveType della mossa
      */
-    public Move(MoveTypes moveType) {
+    public Move(MoveType moveType) {
         this.moveType = moveType;
         this.pp = moveType.getMaxPP();
     }
@@ -21,7 +21,7 @@ public class Move {
      *
      * @return Oggetto MoveType relativo alla mossa
      */
-    public MoveTypes getMoveType() {
+    public MoveType getMoveType() {
         return moveType;
     }
 

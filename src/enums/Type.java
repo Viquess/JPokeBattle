@@ -4,7 +4,7 @@ import util.Utils;
 
 import javax.swing.*;
 
-public enum Types {
+public enum Type {
     NORMAL(new String[]{}, new String[]{"ROCK", "STEEL"}, new String[]{"GHOST"}),
     FIRE(new String[]{"GRASS", "ICE", "BUG", "STEEL"}, new String[]{"FIRE", "WATER", "ROCK", "DRAGON"}, new String[]{}),
     WATER(new String[]{"FIRE", "GROUND", "ROCK"}, new String[]{"WATER", "GRASS", "DRAGON"}, new String[]{}),
@@ -26,7 +26,7 @@ public enum Types {
 
     final String[] superEffective, notVeryEffective, noEffect;
 
-    Types(String[] superEffective, String[] notVeryEffective, String[] noEffect) {
+    Type(String[] superEffective, String[] notVeryEffective, String[] noEffect) {
         this.superEffective = superEffective;
         this.notVeryEffective = notVeryEffective;
         this.noEffect = noEffect;
@@ -38,7 +38,7 @@ public enum Types {
      * @param type Tipo su cui verificare
      * @return True se è superefficace, false altrimenti
      */
-    public boolean isSuperEffectiveOn(Types type) {
+    public boolean isSuperEffectiveOn(Type type) {
         for (String s : superEffective)
             if (s.equalsIgnoreCase(type.name()))
                 return true;
@@ -52,7 +52,7 @@ public enum Types {
      * @param type Tipo su cui verificare
      * @return True se non è efficace, false altrimenti
      */
-    public boolean isNotVeryEffectiveOn(Types type) {
+    public boolean isNotVeryEffectiveOn(Type type) {
         for (String s : notVeryEffective)
             if (s.equalsIgnoreCase(type.name()))
                 return true;
@@ -66,7 +66,7 @@ public enum Types {
      * @param type Tipo su cui verificare
      * @return True se non ha effetto, false altrimenti
      */
-    public boolean hasNoEffectOn(Types type) {
+    public boolean hasNoEffectOn(Type type) {
         for (String s : noEffect)
             if (s.equalsIgnoreCase(type.name()))
                 return true;

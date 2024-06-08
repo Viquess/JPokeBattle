@@ -1,6 +1,6 @@
 package gui;
 
-import enums.Types;
+import enums.Type;
 import gui.components.CustomButton;
 import objects.PokemonImpl;
 import objects.Team;
@@ -75,7 +75,7 @@ public class PokedexMenu extends JPanel {
                 infoTypes = new JLabel();
                 infoTypes.setLayout(new BoxLayout(infoTypes, BoxLayout.X_AXIS));
                 infoTypes.setBounds(332, 320, 0, 25);
-                for (Types type : v.getTypes()) {
+                for (Type type : v.getTypes()) {
                     Rectangle bounds = infoTypes.getBounds();
                     infoTypes.setBounds(bounds.x - 25, bounds.y, bounds.width + 50, bounds.height);
                     infoTypes.add(new JLabel(type.getTag(50)));
@@ -106,7 +106,7 @@ public class PokedexMenu extends JPanel {
                 infoTypes.setBounds(332, 320, 0, 25);
                 infoTypes.removeAll();
                 infoTypes.repaint();
-                for (Types type : v.getTypes()) {
+                for (Type type : v.getTypes()) {
                     Rectangle bounds = infoTypes.getBounds();
                     infoTypes.setBounds(bounds.x - 25, bounds.y, bounds.width + 50, bounds.height);
                     infoTypes.add(new JLabel(type.getTag(50)));

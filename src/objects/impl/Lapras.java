@@ -1,7 +1,7 @@
 package objects.impl;
 
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 import objects.PokemonImpl;
 
 import java.util.List;
@@ -13,8 +13,8 @@ public class Lapras extends PokemonImpl {
     }
 
     @Override
-    public Types[] getTypes() {
-        return new Types[]{Types.WATER, Types.ICE};
+    public Type[] getTypes() {
+        return new Type[]{Type.WATER, Type.ICE};
     }
 
     @Override
@@ -48,10 +48,10 @@ public class Lapras extends PokemonImpl {
     }
 
     @Override
-    public List<MoveTypes> getLearnableMoves() {
-        return List.of(MoveTypes.GROWL, MoveTypes.WATER_GUN, MoveTypes.SING, MoveTypes.MIST,
-                MoveTypes.LIFE_DEW, MoveTypes.ICE_SHARD, MoveTypes.CONFUSE_RAY, MoveTypes.WATER_PULSE,
-                MoveTypes.ICE_BEAM, MoveTypes.BODY_SLAM, MoveTypes.RAIN_DANCE, MoveTypes.PERISH_SONG,
-                MoveTypes.BRINE, MoveTypes.SAFEGUARD, MoveTypes.HYDRO_PUMP, MoveTypes.BLIZZARD, MoveTypes.SHEER_COLD);
+    public List<MoveType> getLearnableMoves() {
+        return List.of(MoveType.GROWL, MoveType.WATER_GUN, MoveType.SING, MoveType.MIST,
+                MoveType.LIFE_DEW, MoveType.ICE_SHARD, MoveType.CONFUSE_RAY, MoveType.WATER_PULSE,
+                MoveType.ICE_BEAM, MoveType.BODY_SLAM, MoveType.RAIN_DANCE, MoveType.PERISH_SONG,
+                MoveType.BRINE, MoveType.SAFEGUARD, MoveType.HYDRO_PUMP, MoveType.BLIZZARD, MoveType.SHEER_COLD);
     }
 }

@@ -1,7 +1,7 @@
 package objects.impl;
 
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 import objects.PokemonImpl;
 
 import java.util.List;
@@ -13,8 +13,8 @@ public class Umbreon extends PokemonImpl {
     }
 
     @Override
-    public Types[] getTypes() {
-        return new Types[]{Types.DARK};
+    public Type[] getTypes() {
+        return new Type[]{Type.DARK};
     }
 
     @Override
@@ -48,9 +48,9 @@ public class Umbreon extends PokemonImpl {
     }
 
     @Override
-    public List<MoveTypes> getLearnableMoves() {
-        return List.of(MoveTypes.TACKLE, MoveTypes.TAIL_WHIP, MoveTypes.HELPING_HAND, MoveTypes.SAND_ATTACK,
-                MoveTypes.PURSUIT, MoveTypes.QUICK_ATTACK, MoveTypes.CONFUSE_RAY, MoveTypes.FEINT_ATTACK,
-                MoveTypes.ASSURANCE, MoveTypes.SCREECH, MoveTypes.MOONLIGHT, MoveTypes.MEAN_LOOK, MoveTypes.LAST_RESORT);
+    public List<MoveType> getLearnableMoves() {
+        return List.of(MoveType.TACKLE, MoveType.TAIL_WHIP, MoveType.HELPING_HAND, MoveType.SAND_ATTACK,
+                MoveType.PURSUIT, MoveType.QUICK_ATTACK, MoveType.CONFUSE_RAY, MoveType.FEINT_ATTACK,
+                MoveType.ASSURANCE, MoveType.SCREECH, MoveType.MOONLIGHT, MoveType.MEAN_LOOK, MoveType.LAST_RESORT);
     }
 }

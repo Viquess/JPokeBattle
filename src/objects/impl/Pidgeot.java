@@ -1,7 +1,7 @@
 package objects.impl;
 
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 import objects.PokemonImpl;
 
 import java.util.List;
@@ -13,8 +13,8 @@ public class Pidgeot extends PokemonImpl {
     }
 
     @Override
-    public Types[] getTypes() {
-        return new Types[]{Types.NORMAL, Types.FLYING};
+    public Type[] getTypes() {
+        return new Type[]{Type.NORMAL, Type.FLYING};
     }
 
     @Override
@@ -48,10 +48,10 @@ public class Pidgeot extends PokemonImpl {
     }
 
     @Override
-    public List<MoveTypes> getLearnableMoves() {
-        return List.of(MoveTypes.TACKLE, MoveTypes.SAND_ATTACK, MoveTypes.GUST, MoveTypes.QUICK_ATTACK,
-                MoveTypes.WHIRLWIND, MoveTypes.TWISTER, MoveTypes.FEATHER_DANCE, MoveTypes.AGILITY,
-                MoveTypes.WING_ATTACK, MoveTypes.ROOST, MoveTypes.TAILWIND, MoveTypes.MIRROR_MOVE,
-                MoveTypes.AIR_SLASH, MoveTypes.HURRICANE);
+    public List<MoveType> getLearnableMoves() {
+        return List.of(MoveType.TACKLE, MoveType.SAND_ATTACK, MoveType.GUST, MoveType.QUICK_ATTACK,
+                MoveType.WHIRLWIND, MoveType.TWISTER, MoveType.FEATHER_DANCE, MoveType.AGILITY,
+                MoveType.WING_ATTACK, MoveType.ROOST, MoveType.TAILWIND, MoveType.MIRROR_MOVE,
+                MoveType.AIR_SLASH, MoveType.HURRICANE);
     }
 }

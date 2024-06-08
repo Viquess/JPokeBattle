@@ -1,7 +1,7 @@
 package objects;
 
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 
 import javax.swing.*;
 import java.util.List;
@@ -26,7 +26,7 @@ public interface Pokemon {
      *
      * @return Tipi del Pokemon
      */
-    Types[] getTypes();
+    Type[] getTypes();
 
     /**
      * Determina la vita massima del Pokemon
@@ -87,7 +87,7 @@ public interface Pokemon {
      *
      * @return Lista di mosse imparabili dal Pokemon
      */
-    List<MoveTypes> getLearnableMoves();
+    List<MoveType> getLearnableMoves();
 
     /**
      * Determina la lista di mosse del Pokemon
@@ -109,7 +109,7 @@ public interface Pokemon {
      * @param type MoveType della mossa
      * @return True se ha la mossa, altrimenti false
      */
-    boolean hasMove(MoveTypes type);
+    boolean hasMove(MoveType type);
 
     /**
      * Ottieni lo sprite posteriore del Pokemon

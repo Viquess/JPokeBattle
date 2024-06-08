@@ -1,8 +1,8 @@
 package objects;
 
 import enums.MoveCategory;
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 import util.Datas;
 import util.Utils;
 
@@ -18,7 +18,7 @@ public abstract class PokemonImpl implements Pokemon {
     public abstract String getDisplayName();
 
     @Override
-    public abstract Types[] getTypes();
+    public abstract Type[] getTypes();
 
     @Override
     public abstract int getMaxHp();
@@ -39,7 +39,7 @@ public abstract class PokemonImpl implements Pokemon {
     public abstract int getSpeed();
 
     @Override
-    public abstract List<MoveTypes> getLearnableMoves();
+    public abstract List<MoveType> getLearnableMoves();
 
     @Override
     public String getId() {
@@ -68,7 +68,7 @@ public abstract class PokemonImpl implements Pokemon {
     }
 
     @Override
-    public boolean hasMove(MoveTypes type) {
+    public boolean hasMove(MoveType type) {
         for (Move move : moves)
             if (move.getMoveType() == type)
                 return true;

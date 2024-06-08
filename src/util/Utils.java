@@ -1,8 +1,8 @@
 package util;
 
 import enums.MoveCategory;
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 import objects.PokemonImpl;
 
 import javax.sound.sampled.AudioInputStream;
@@ -158,9 +158,9 @@ public class Utils {
         return new ArrayList<>(collection).get(randInt(0, collection.size() - 1));
     }
 
-    public static double getTypeModifier(PokemonImpl to, MoveTypes moveType) {
+    public static double getTypeModifier(PokemonImpl to, MoveType moveType) {
         double typeModifier = 1;
-        for (Types type : to.getTypes()) {
+        for (Type type : to.getTypes()) {
             if (moveType.getType().isSuperEffectiveOn(type))
                 typeModifier *= 2;
             else if (moveType.getType().isNotVeryEffectiveOn(type))
@@ -174,9 +174,9 @@ public class Utils {
         return typeModifier;
     }
 
-    public static double calculateDamage(PokemonImpl from, PokemonImpl to, MoveTypes moveType) {
+    public static double calculateDamage(PokemonImpl from, PokemonImpl to, MoveType moveType) {
         double stab = 1.0;
-        for (Types type : from.getTypes())
+        for (Type type : from.getTypes())
             if (type == moveType.getType()) {
                 stab = 1.5;
                 break;

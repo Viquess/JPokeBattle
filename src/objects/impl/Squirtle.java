@@ -1,7 +1,7 @@
 package objects.impl;
 
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 import objects.PokemonImpl;
 
 import java.util.List;
@@ -13,8 +13,8 @@ public class Squirtle extends PokemonImpl {
     }
 
     @Override
-    public Types[] getTypes() {
-        return new Types[]{Types.WATER};
+    public Type[] getTypes() {
+        return new Type[]{Type.WATER};
     }
 
     @Override
@@ -48,10 +48,10 @@ public class Squirtle extends PokemonImpl {
     }
 
     @Override
-    public List<MoveTypes> getLearnableMoves() {
-        return List.of(MoveTypes.TACKLE, MoveTypes.TAIL_WHIP, MoveTypes.WATER_GUN, MoveTypes.WITHDRAW,
-                MoveTypes.BUBBLE, MoveTypes.BITE, MoveTypes.RAPID_SPIN, MoveTypes.PROTECT,
-                MoveTypes.WATER_PULSE, MoveTypes.AQUA_TAIL, MoveTypes.SKULL_BASH, MoveTypes.IRON_DEFENSE,
-                MoveTypes.RAIN_DANCE, MoveTypes.HYDRO_PUMP);
+    public List<MoveType> getLearnableMoves() {
+        return List.of(MoveType.TACKLE, MoveType.TAIL_WHIP, MoveType.WATER_GUN, MoveType.WITHDRAW,
+                MoveType.BUBBLE, MoveType.BITE, MoveType.RAPID_SPIN, MoveType.PROTECT,
+                MoveType.WATER_PULSE, MoveType.AQUA_TAIL, MoveType.SKULL_BASH, MoveType.IRON_DEFENSE,
+                MoveType.RAIN_DANCE, MoveType.HYDRO_PUMP);
     }
 }

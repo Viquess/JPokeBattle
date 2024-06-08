@@ -1,7 +1,7 @@
 package objects.impl;
 
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 import objects.PokemonImpl;
 
 import java.util.List;
@@ -13,8 +13,8 @@ public class Rapidash extends PokemonImpl {
     }
 
     @Override
-    public Types[] getTypes() {
-        return new Types[]{Types.FIRE};
+    public Type[] getTypes() {
+        return new Type[]{Type.FIRE};
     }
 
     @Override
@@ -48,10 +48,10 @@ public class Rapidash extends PokemonImpl {
     }
 
     @Override
-    public List<MoveTypes> getLearnableMoves() {
-        return List.of(MoveTypes.QUICK_ATTACK, MoveTypes.GROWL, MoveTypes.TAIL_WHIP, MoveTypes.EMBER,
-                MoveTypes.FLAME_WHEEL, MoveTypes.STOMP, MoveTypes.FLAME_CHARGE, MoveTypes.AGILITY,
-                MoveTypes.FIRE_SPIN, MoveTypes.TAKE_DOWN, MoveTypes.INFERNO, MoveTypes.FIRE_BLAST,
-                MoveTypes.BOUNCE, MoveTypes.FLARE_BLITZ);
+    public List<MoveType> getLearnableMoves() {
+        return List.of(MoveType.QUICK_ATTACK, MoveType.GROWL, MoveType.TAIL_WHIP, MoveType.EMBER,
+                MoveType.FLAME_WHEEL, MoveType.STOMP, MoveType.FLAME_CHARGE, MoveType.AGILITY,
+                MoveType.FIRE_SPIN, MoveType.TAKE_DOWN, MoveType.INFERNO, MoveType.FIRE_BLAST,
+                MoveType.BOUNCE, MoveType.FLARE_BLITZ);
     }
 }

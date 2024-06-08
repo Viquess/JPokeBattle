@@ -1,7 +1,7 @@
 package objects.impl;
 
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 import objects.PokemonImpl;
 
 import java.util.List;
@@ -13,8 +13,8 @@ public class Arbok extends PokemonImpl {
     }
 
     @Override
-    public Types[] getTypes() {
-        return new Types[]{Types.POISON};
+    public Type[] getTypes() {
+        return new Type[]{Type.POISON};
     }
 
     @Override
@@ -48,11 +48,11 @@ public class Arbok extends PokemonImpl {
     }
 
     @Override
-    public List<MoveTypes> getLearnableMoves() {
-        return List.of(MoveTypes.BITE, MoveTypes.FIRE_FANG, MoveTypes.ICE_FANG, MoveTypes.LEER,
-                MoveTypes.POISON_STING, MoveTypes.THUNDER_FANG, MoveTypes.WRAP, MoveTypes.GLARE,
-                MoveTypes.SCREECH, MoveTypes.ACID, MoveTypes.SPIT_UP, MoveTypes.STOCKPILE,
-                MoveTypes.SWALLOW, MoveTypes.ACID_SPRAY, MoveTypes.SLUDGE_BOMB, MoveTypes.GASTRO_ACID,
-                MoveTypes.BELCH, MoveTypes.HAZE, MoveTypes.COIL, MoveTypes.GUNK_SHOT);
+    public List<MoveType> getLearnableMoves() {
+        return List.of(MoveType.BITE, MoveType.FIRE_FANG, MoveType.ICE_FANG, MoveType.LEER,
+                MoveType.POISON_STING, MoveType.THUNDER_FANG, MoveType.WRAP, MoveType.GLARE,
+                MoveType.SCREECH, MoveType.ACID, MoveType.SPIT_UP, MoveType.STOCKPILE,
+                MoveType.SWALLOW, MoveType.ACID_SPRAY, MoveType.SLUDGE_BOMB, MoveType.GASTRO_ACID,
+                MoveType.BELCH, MoveType.HAZE, MoveType.COIL, MoveType.GUNK_SHOT);
     }
 }

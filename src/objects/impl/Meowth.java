@@ -1,7 +1,7 @@
 package objects.impl;
 
-import enums.MoveTypes;
-import enums.Types;
+import enums.MoveType;
+import enums.Type;
 import objects.PokemonImpl;
 
 import java.util.List;
@@ -13,8 +13,8 @@ public class Meowth extends PokemonImpl {
     }
 
     @Override
-    public Types[] getTypes() {
-        return new Types[]{Types.NORMAL};
+    public Type[] getTypes() {
+        return new Type[]{Type.NORMAL};
     }
 
     @Override
@@ -48,10 +48,10 @@ public class Meowth extends PokemonImpl {
     }
 
     @Override
-    public List<MoveTypes> getLearnableMoves() {
-        return List.of(MoveTypes.SCRATCH, MoveTypes.GROWL, MoveTypes.BITE, MoveTypes.FAKE_OUT,
-                MoveTypes.FURY_SWIPES, MoveTypes.SCREECH, MoveTypes.FEINT_ATTACK, MoveTypes.TAUNT,
-                MoveTypes.PAY_DAY, MoveTypes.SLASH, MoveTypes.NASTY_PLOT, MoveTypes.ASSURANCE,
-                MoveTypes.CAPTIVATE, MoveTypes.NIGHT_SLASH, MoveTypes.FEINT);
+    public List<MoveType> getLearnableMoves() {
+        return List.of(MoveType.SCRATCH, MoveType.GROWL, MoveType.BITE, MoveType.FAKE_OUT,
+                MoveType.FURY_SWIPES, MoveType.SCREECH, MoveType.FEINT_ATTACK, MoveType.TAUNT,
+                MoveType.PAY_DAY, MoveType.SLASH, MoveType.NASTY_PLOT, MoveType.ASSURANCE,
+                MoveType.CAPTIVATE, MoveType.NIGHT_SLASH, MoveType.FEINT);
     }
 }
