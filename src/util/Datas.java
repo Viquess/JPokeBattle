@@ -76,15 +76,6 @@ public class Datas {
         }
     }
 
-    /*
-    Ottavio,8
-
-    Mario,12
-    Franco,10
-    Gianluca,7
-    Laura,3
-     */
-
     /**
      * Ottieni il punteggio dell'ultima persona in classifica
      *
