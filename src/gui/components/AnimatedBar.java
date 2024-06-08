@@ -44,8 +44,9 @@ public class AnimatedBar extends JProgressBar {
 
     /**
      * Resetta la AnimatedBar
+     *
      * @param value Valore da impostare
-     * @param max Valore massimo da impostare
+     * @param max   Valore massimo da impostare
      */
     public void resetBar(int value, int max) {
         setMaximum(max);
@@ -55,6 +56,7 @@ public class AnimatedBar extends JProgressBar {
 
     /**
      * Decrementa la AnimatedBar di una certa quantità
+     *
      * @param quantity Quantità da decrementare
      */
     public void decrement(int quantity) {

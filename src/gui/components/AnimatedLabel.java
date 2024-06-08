@@ -53,7 +53,8 @@ public class AnimatedLabel extends JLabel {
 
     /**
      * Fai apparire un testo nell'AnimatedLabel e dopodichè esegui del codice
-     * @param text Testo da far apparire
+     *
+     * @param text     Testo da far apparire
      * @param runnable Runnable da eseguire
      */
     public void appearTextAndExecute(String text, Runnable runnable) {
@@ -83,10 +84,11 @@ public class AnimatedLabel extends JLabel {
 
     /**
      * Sposta l'AnimatedLabel in una nuova posizione
-     * @param x X della nuova posizione
-     * @param y Y della nuova posizione
-     * @param frames Numero di microspostamenti da eseguire
-     * @param delay Tempo tra ogni microspostamento (in millisecondi)
+     *
+     * @param x        X della nuova posizione
+     * @param y        Y della nuova posizione
+     * @param frames   Numero di microspostamenti da eseguire
+     * @param delay    Tempo tra ogni microspostamento (in millisecondi)
      * @param runnable Runnable da eseguire al termine dello spostamento
      */
     public void setLocation(int x, int y, int frames, int delay, Runnable runnable) {
