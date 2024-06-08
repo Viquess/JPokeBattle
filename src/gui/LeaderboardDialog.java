@@ -35,7 +35,7 @@ public class LeaderboardDialog extends JDialog {
             label.setForeground(Color.WHITE);
             label.setBounds(55, 80 + (35 * i.getAndIncrement()), 160, 30);
             label.setFont(Utils.getFont("files\\BattleFont.ttf", 24));
-            label.setText("%s) %s | %s pt.".formatted(i, k, v));
+            label.setText("%s) %s [%s pt.]".formatted(i, k, v));
             label.setHorizontalAlignment(SwingConstants.CENTER);
             panel.add(label);
         });
