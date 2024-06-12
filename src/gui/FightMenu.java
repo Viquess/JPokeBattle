@@ -450,7 +450,7 @@ public class FightMenu extends JPanel {
                                         if (name == null || name.isEmpty())
                                             return;
 
-                                        Datas.addToLeaderboard(name, points);
+                                        Datas.addToLeaderboard(name.replace(",", " "), points);
 
                                         setVisible(false);
                                         Application.getInstance().setContentPane(new StartMenu());
