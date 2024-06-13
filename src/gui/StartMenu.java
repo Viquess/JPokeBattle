@@ -25,14 +25,18 @@ public class StartMenu extends JPanel {
         JButton startButton = new CustomButton(new ImageIcon(Utils.getURL("files\\start\\start.png")), 391, 400, 130, 46);
         startButton.setPressedIcon(new ImageIcon(Utils.getURL("files\\start\\start_pressed.png")));
         startButton.addActionListener(e -> {
-            setVisible(false);
             Utils.playSound("files\\sounds\\pling.wav");
+
+            setVisible(false);
             Application.getInstance().setContentPane(new PokedexMenu());
         });
 
         JButton leaderboardButton = new CustomButton(new ImageIcon(Utils.getURL("files\\start\\leaderboard.png")), 525, 400, 46, 46);
         leaderboardButton.setPressedIcon(new ImageIcon(Utils.getURL("files\\start\\leaderboard_pressed.png")));
-        leaderboardButton.addActionListener(event -> new LeaderboardDialog());
+        leaderboardButton.addActionListener(event -> {
+            Utils.playSound("files\\sounds\\pling.wav");
+            new LeaderboardDialog();
+        });
 
         add(title);
         add(startButton);

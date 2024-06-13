@@ -86,6 +86,8 @@ public class FightMenu extends JPanel {
         fightButton.setPressedIcon(new ImageIcon(Utils.getURL("files\\battle\\fight_pressed.png")));
         fightButton.setEnabled(false);
         fightButton.addActionListener(e -> {
+            Utils.playSound("files\\sounds\\pling.wav");
+
             message.setVisible(false);
             clearComponents();
 
@@ -102,6 +104,7 @@ public class FightMenu extends JPanel {
                     button.setText("%s (%s/%s)".formatted(moveType.getDisplayName(), move.getPP(), moveType.getMaxPP()));
                     button.setHorizontalTextPosition(SwingConstants.CENTER);
                     button.add(new JLabel(moveType.getType().getTag(40)));
+
                     if (move.getPP() == 0) {
                         button.setEnabled(false);
                     } else {
@@ -110,6 +113,7 @@ public class FightMenu extends JPanel {
                             pokemonButton.setEnabled(false);
                             runButton.setEnabled(false);
 
+                            battle.getPlayerPokemon().cry();
                             boolean missed = Utils.randInt(0, 100) > move.getMoveType().getAccuracy();
 
                             playerSprite.setLocation(210, 150, 8, 8, () -> {
@@ -157,12 +161,15 @@ public class FightMenu extends JPanel {
                 add(button);
             }
 
+            revalidate();
             repaint();
         });
 
         pokemonButton.setPressedIcon(new ImageIcon(Utils.getURL("files\\battle\\pokemon_pressed.png")));
         pokemonButton.setEnabled(false);
         pokemonButton.addActionListener(e -> {
+            Utils.playSound("files\\sounds\\pling.wav");
+
             message.setVisible(false);
             clearComponents();
 
@@ -188,8 +195,6 @@ public class FightMenu extends JPanel {
                         break i;
                     }
 
-                    button.addActionListener(event -> switchPokemon(pokemon, true));
-
                     JLabel container = new JLabel();
                     container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
                     container.setBounds(55 + (226 * (i < 3 ? i : i - 3)), i < 3 ? 413 : 459, 38, 0);
@@ -203,6 +208,8 @@ public class FightMenu extends JPanel {
 
                     actualComponents.add(container);
                     add(container);
+
+                    button.addActionListener(event -> switchPokemon(pokemon, true));
                 } else
                     button.setEnabled(false);
 
@@ -210,6 +217,7 @@ public class FightMenu extends JPanel {
                 add(button);
             }
 
+            revalidate();
             repaint();
         });
 
@@ -412,6 +420,8 @@ public class FightMenu extends JPanel {
 
         Move finalMove = opponentMove;
         boolean missed = Utils.randInt(0, 100) > finalMove.getMoveType().getAccuracy();
+
+        battle.getOpponentPokemon().cry();
 
         opponentSprite.setLocation(490, 90, 8, 8, () -> {
             finalMove.setPP(finalMove.getPP() - 1);

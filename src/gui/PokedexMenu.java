@@ -98,6 +98,8 @@ public class PokedexMenu extends JPanel {
 
             pokemon.setBorder(new LineBorder(Color.decode("#E86742"), 4, true));
             pokemon.addActionListener(e -> {
+                v.cry();
+
                 infoTitle.setIcon(v.getFrontSprite());
                 infoTitle.setText("<html><b>%s</b></html>".formatted(v.getDisplayName()));
 
@@ -105,7 +107,7 @@ public class PokedexMenu extends JPanel {
 
                 infoTypes.setBounds(332, 320, 0, 25);
                 infoTypes.removeAll();
-                infoTypes.repaint();
+
                 for (Type type : v.getTypes()) {
                     Rectangle bounds = infoTypes.getBounds();
                     infoTypes.setBounds(bounds.x - 25, bounds.y, bounds.width + 50, bounds.height);
@@ -123,6 +125,9 @@ public class PokedexMenu extends JPanel {
                 });
 
                 selected = v;
+
+                revalidate();
+                repaint();
             });
 
             pokemon.addMouseListener(new MouseListener() {
